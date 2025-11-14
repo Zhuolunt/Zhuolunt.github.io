@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Weaver - Weave Journeys, Cherish Memories</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A6496', // Deep blue
+                        secondary: '#F4A261', // Warm orange
+                        accent: '#E9C46A', // Golden yellow
+                        dark: '#0F172A', // Dark blue/black
+                        light: '#F8FAFC', // Off-white
+                        muted: '#64748B', // Slate gray
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        scaleIn: {
+                            '0%': { transform: 'scale(0.95)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        }
+                    },
+                    animation: {
+                        fadeIn: 'fadeIn 0.8s ease-out forwards',
+                        slideUp: 'slideUp 0.8s ease-out forwards',
+                        scaleIn: 'scaleIn 0.5s ease-out forwards'
+                    }
+                },
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0px); }
+            }
+            /* Scroll animation utilities */
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.8s ease-out;
+            }
+            .animate-on-scroll.animate-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .animate-fade-in {
+                opacity: 0;
+                transition: opacity 0.8s ease-out;
+            }
+            .animate-fade-in.animate-in {
+                opacity: 1;
+            }
+            .animate-slide-up {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.8s ease-out;
+            }
+            .animate-slide-up.animate-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .animate-scale-in {
+                opacity: 0;
+                transform: scale(0.9);
+                transition: all 0.5s ease-out;
+            }
+            .animate-scale-in.animate-in {
+                opacity: 1;
+                transform: scale(1);
+            }
+            /* Card hover effects */
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            /* Responsive utilities */
+            .mobile-hidden {
+                display: none;
+            }
+            @screen md {
+                .mobile-hidden {
+                    display: block;
+                }
+                .desktop-hidden {
+                    display: none;
+                }
+            }
+            /* Mobile touch optimization */
+            .select-mobile, select {
+                min-height: 48px; /* Minimum touch target size */
+                font-size: 16px; /* Prevents zoom on focus in iOS */
+            }
+            /* Ensure all interactive elements have sufficient touch targets */
+            button, a, input[type="submit"], input[type="button"], input[type="reset"] {
+                min-height: 44px;
+                min-width: 44px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+            /* Smooth scroll behavior */
+            html {
+                scroll-behavior: smooth;
+            }
+            /* Button hover effects */
+            .btn-effect {
+                position: relative;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+            .btn-effect::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background: rgba(255, 255, 255, 0.1);
+                transition: height 0.3s ease;
+            }
+            .btn-effect:hover::after {
+                height: 100%;
+            }
+        }
+    </style>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(42, 100, 150, 0.6), rgba(244, 162, 97, 0.4));
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Desktop Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 50;
+            min-width: 200px;
+            opacity: 0;
+            transform: translateY(2px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+        .dropdown-content.opacity-100 {
+            pointer-events: auto;
+        }
+
+        /* Mega Menu Style for Services */
+        .mega-menu {
+            min-width: 24rem; /* w-96 */
+        }
+        
+        /* Mobile Dropdown Menu Styles */
+        .mobile-dropdown {
+            position: relative;
+        }
+        .mobile-dropdown-content {
+            animation: slideDown 0.3s ease;
+        }
+        @keyframes slideDown {
+             from {
+                 opacity: 0;
+                 transform: translateY(-5px);
+             }
+             to {
+                 opacity: 1;
+                 transform: translateY(0);
+             }
+         }
+        
+        /* Fix dropdown text visibility on scroll */
+        .scrolled .dropdown-content a,
+        .scrolled #services-dropdown a,
+        .scrolled #inspired-dropdown a,
+        .scrolled #resources-dropdown a {
+            color: white !important;
+            background-color: rgba(30, 30, 30, 0.95) !important;
+        }
+        
+        .scrolled #services-dropdown,
+        .scrolled #inspired-dropdown,
+        .scrolled #resources-dropdown {
+            background-color: rgba(30, 30, 30, 0.95) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        /* Top Aux Bar Style */
+        .top-aux-bar {
+            transition: all 0.3s ease;
+        }
+        /* Hide aux bar on scroll */
+        .scrolled .top-aux-bar {
+            display: none;
+        }
+
+        /* Hero Slider CSS */
+        @keyframes heroImageFade {
+            0% { opacity: 1; transform: scale(1); }
+            17% { opacity: 1; transform: scale(1.03); } /* Hold image */
+            25% { opacity: 0; transform: scale(1.03); } /* Fade out */
+            92% { opacity: 0; transform: scale(1); }   /* Hold invisible */
+            100% { opacity: 1; transform: scale(1); } /* Fade back in */
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1);
+            animation: heroImageFade 24s linear infinite; /* 24s total = 4 images * 6s each */
+            transition: all 1s ease-in-out;
+        }
+
+        /* Auth Modal Tab Styles */
+        .auth-tab-btn.active {
+            background-color: white;
+            color: #2A6496; /* primary color */
+        }
+        .auth-tab-btn {
+            background-color: transparent;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent">
+        
+        <div class="top-aux-bar bg-black/30 text-white text-xs hidden md:block">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-end items-center h-8 space-x-6">
+                    <button id="open-auth-modal" class="hover:text-secondary transition-colors font-medium">
+                        Sign in / Register
+                    </button>
+                    <span class="text-white/30">|</span>
+                    <a href="#" class="hover:text-secondary transition-colors">SDGs/Sustainability</a>
+                    <a href="#" class="hover:text-secondary transition-colors">Agent Portal</a>
+                    <a href="#contact" class="hover:text-secondary transition-colors">Contact & Connect</a>
+                    <a href="#" class="font-bold hover:text-secondary transition-colors">中文</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- 导航栏中的占位LOGO容器，滚动时会填充 -->
+                <div id="header-logo-container" class="flex items-center space-x-2 opacity-0 transition-all duration-500">
+                    <img src="图片1.png" alt="Company Logo" class="h-14 sm:h-16 md:h-18 w-auto object-contain nav-logo-img rounded-lg" style="max-height: 72px; background-color: rgba(255,255,255,1); padding: 4px;">
+                    <span class="text-xl md:text-2xl font-serif font-bold text-white text-shadow ml-2 hidden md:inline">Journey<span class="text-secondary">Weaver</span></span>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8 items-center">
+                    
+                    <div class="relative group">
+                        <button class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center" aria-expanded="false" aria-controls="services-dropdown">
+                            What We Offer
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div id="services-dropdown" class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100 mega-menu">
+                            <div class="py-2">
+                                <a href="#services" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">All Journeys</a>
+                                <a href="#services" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Custom Journeys</a>
+                                <a href="#services" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Small Group Journeys</a>
+                                <a href="#services" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Cultural Experiences</a>
+                                <a href="#services" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Adventure Travel</a>
+                                <a href="#services" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Sustainable Tourism</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <button class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center" aria-expanded="false" aria-controls="inspired-dropdown">
+                            Get Inspired
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div id="inspired-dropdown" class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100">
+                            <div class="py-2">
+                                <a href="#travelogue" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Travelogue (Blog)</a>
+                                <a href="#travelogue" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Travel Stories</a>
+                                <a href="#travelers" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Testimonials</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <button class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center" aria-expanded="false" aria-controls="resources-dropdown">
+                            Travel Resources
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div id="resources-dropdown" class="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100">
+                            <div class="py-2">
+                                <a href="#travelogue" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Travel Guides</a>
+                                <a href="#travelogue" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Travel Tips</a>
+                                <a href="#" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">Visa Info</a>
+                                <a href="#" class="block px-4 py-2 text-dark hover:bg-secondary hover:text-white transition-colors duration-200">FAQ</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#why-choose-us" class="text-white hover:text-secondary transition-colors duration-300 font-medium">Why Us</a>
+                    <a href="#contact" class="text-white hover:text-secondary transition-colors duration-300 font-medium">Contact</a>
+                </nav>
+                
+                <a href="#contact" class="hidden md:block bg-secondary hover:bg-secondary/90 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105">
+                    PLAN YOUR JOURNEY
+                </a>
+                
+                <button id="mobile-menu-button" class="md:hidden text-white text-2xl focus:outline-none p-2 rounded-full hover:bg-white/10 transition-colors duration-300">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden hidden bg-dark/95 bg-blur">
+            <div class="container mx-auto px-4 py-4 space-y-4">
+                
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center" aria-expanded="false" aria-controls="mobile-services-dropdown">
+                        What We Offer
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-services-dropdown" class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="#services" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">All Journeys</a>
+                        <a href="#services" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Custom Journeys</a>
+                        <a href="#services" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Small Group Journeys</a>
+                    </div>
+                </div>
+                
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center" aria-expanded="false" aria-controls="mobile-inspired-dropdown">
+                        Get Inspired
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-inspired-dropdown" class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="#travelogue" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travelogue (Blog)</a>
+                        <a href="#travelogue" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travel Stories</a>
+                        <a href="#travelers" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Testimonials</a>
+                    </div>
+                </div>
+
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center" aria-expanded="false" aria-controls="mobile-resources-dropdown">
+                        Travel Resources
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div id="mobile-resources-dropdown" class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="#travelogue" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travel Guides</a>
+                        <a href="#travelogue" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travel Tips</a>
+                        <a href="#" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Visa Info</a>
+                        <a href="#" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">FAQ</a>
+                    </div>
+                </div>
+
+                <a href="#why-choose-us" class="block text-white hover:text-secondary py-2 transition-colors duration-300">Why Us</a>
+                <a href="#contact" class="block text-white hover:text-secondary py-2 transition-colors duration-300">Contact</a>
+                
+                <a href="#contact" class="block bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-6 rounded-full text-center transition-all duration-300">
+                    PLAN YOUR JOURNEY
+                </a>
+
+                <div class="border-t border-white/20 pt-4 mt-4 space-y-2 text-sm">
+                    <button id="mobile-open-auth-modal" class="block text-white/70 hover:text-secondary transition-colors font-medium w-full text-left">
+                        Sign in / Register
+                    </button>
+                    <a href="#" class="block text-white/70 hover:text-secondary transition-colors">SDGs/Sustainability</a>
+                    <a href="#" class="block text-white/70 hover:text-secondary transition-colors">Agent Portal</a>
+                    <a href="#" class="block text-white/70 hover:text-secondary transition-colors">中文</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- 轮播图上方的独立大尺寸LOGO -->
+    <div id="hero-logo" class="absolute top-4 left-0 right-0 mx-auto flex justify-center items-center z-20 md:top-6 md:left-6 md:right-auto md:mx-0 md:justify-start">
+        <a href="#">
+            <img src="图片1.png" alt="Company Logo" class="hero-logo-img w-48 md:w-80 h-auto object-contain">
+        </a>
+    </div>
+    
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        
+        <div class="absolute inset-0 z-0">
+            <div class="hero-bg" style="background-image: url('https://picsum.photos/id/1036/2000/1200'); animation-delay: 0s;"></div>
+            <div class="hero-bg" style="background-image: url('https://picsum.photos/id/1018/2000/1200'); animation-delay: 6s;"></div>
+            <div class="hero-bg" style="background-image: url('https://picsum.photos/id/1043/2000/1200'); animation-delay: 12s;"></div>
+            <div class="hero-bg" style="background-image: url('https://picsum.photos/id/10/2000/1200'); animation-delay: 18s;"></div>
+            
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center animate-slide-up pt-16 md:pt-0">
+            <h1 class="text-[clamp(2.5rem,6vw,5rem)] font-serif font-bold text-white leading-tight text-shadow mb-6">
+                Weave Journeys,<br>
+                <span class="text-secondary">Cherish Memories</span>
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 max-w-3xl mx-auto mb-10">
+                Welcome to Journey Weaver, where every journey is crafted not just to be traveled, but to be remembered. We specialize in emotionally-driven, sustainable, and culturally immersive travel experiences across China.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 sm:gap-8">
+                <a href="#services" class="bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                    LET THE JOURNEY BEGIN
+                </a>
+                <a href="#contact" class="bg-transparent border-2 border-white hover:border-secondary hover:text-secondary text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300">
+                    Start Planning
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center items-center text-white animate-bounce">
+            <a href="#search-filter" class="flex flex-col items-center text-white/80 hover:text-white transition-colors">
+                <span class="mb-2 text-sm">Scroll Down</span>
+                <i class="fa fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="search-filter" class="py-12 bg-light shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 items-center">
+                <h3 class="text-xl font-serif font-semibold text-dark md:col-span-1">Find Your Journey:</h3>
+                
+                <div class="md:col-span-1">
+                    <label for="search-dest" class="hidden">Destination</label>
+                    <select id="search-dest" name="destination" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none sm:min-h-[48px] select-mobile">
+                        <option selected>All Destinations</option>
+                        <option>Yunnan</option>
+                        <option>Beijing</option>
+                        <option>Shanghai</option>
+                        <option>Sichuan</option>
+                    </select>
+                </div>
+                
+                <div class="md:col-span-1">
+                    <label for="search-interest" class="hidden">Interest</label>
+                    <select id="search-interest" name="interest" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none sm:min-h-[48px] select-mobile">
+                        <option selected>All Interests</option>
+                        <option>Cultural</option>
+                        <option>Nature & Hiking</option>
+                        <option>Culinary</option>
+                        <option>Wellness</option>
+                    </select>
+                </div>
+
+                <div class="md:col-span-1">
+                    <label for="search-length" class="hidden">Length</label>
+                    <select id="search-length" name="length" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none sm:min-h-[48px] select-mobile">
+                        <option selected>All Durations</option>
+                        <option>Day Trips</option>
+                        <option>1-3 Days</option>
+                        <option>4-7 Days</option>
+                        <option>8+ Days</option>
+                    </select>
+                </div>
+
+                <div class="md:col-span-1">
+                    <button type="button" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="py-20 bg-light relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">About Us</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-dark/70 max-w-2xl mx-auto text-lg">
+                    Discover the heart and soul behind Journey Weaver, where we craft experiences that connect travelers with the true essence of China.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative animate-slide-up">
+                    <div class="w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-xl transform rotate-1 hover:rotate-0 transition-all duration-500">
+                        <img src="https://picsum.photos/id/1015/800/900" alt="Journey Weaver team" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-primary rounded-full flex items-center justify-center shadow-lg z-10 hidden md:flex">
+                        <div class="text-white text-center">
+                            <div class="text-2xl font-bold">10+</div>
+                            <div class="text-sm">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-10 animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="group">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fa fa-eye text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-serif font-semibold text-dark mt-1">Vision</h3>
+                        </div>
+                        <p class="text-dark/70 pl-16 leading-relaxed">
+                            To become the world's leading designer of emotionally driven travel experiences, making every journey a precious memory in one's life.
+                        </p>
+                    </div>
+                    
+                    <div class="group">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fa fa-bullseye text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-serif font-semibold text-dark mt-1">Mission</h3>
+                        </div>
+                        <p class="text-dark/70 pl-16 leading-relaxed">
+                            Through personalized, sustainable, and culturally immersive travel services, we connect people with places, people with stories, and people with themselves.
+                        </p>
+                    </div>
+                    
+                    <div class="group">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 group-hover:bg-primary/20 transition-colors duration-300">
+                                <i class="fa fa-book text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-serif font-semibold text-dark mt-1">Our Story</h3>
+                        </div>
+                        <p class="text-dark/70 pl-16 leading-relaxed">
+                            Inspired by the interplay of trace and memory, our logo symbolizes a path that transforms into a heart or mind—representing the fusion of travel and emotion. From footprints to freedom, we design journeys that matter.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-slide-up">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-heart text-secondary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">Emotional Journey</h4>
+                    <p class="text-dark/70">We design experiences that create lasting emotional connections and memories.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-slide-up" style="animation-delay: 100ms;">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-leaf text-secondary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">Sustainability</h4>
+                    <p class="text-dark/70">Committed to eco-friendly practices and preserving the natural beauty we showcase.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-slide-up" style="animation-delay: 200ms;">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-users text-secondary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">Cultural Respect</h4>
+                    <p class="text-dark/70">We honor local traditions and promote authentic cultural exchange.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-slide-up" style="animation-delay: 300ms;">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa fa-star text-secondary text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4">Excellence</h4>
+                    <p class="text-dark/70">We strive for perfection in every detail of your travel experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="py-20 bg-white relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">Our Featured Journeys</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-dark/70 max-w-2xl mx-auto text-lg">
+                    Discover our range of meticulously crafted travel experiences designed to connect you with the heart and soul of China.
+                </p>
+            </div>
+            
+            <h3 class="text-3xl font-serif font-semibold text-dark mb-8 text-center md:text-left animate-slide-up">Our Favorite Custom Journeys</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="group bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1039/800/600" alt="Cultural Immersion Tours" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-university text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">Cultural Immersion Tours</h3>
+                        <p class="text-dark/70 mb-6">
+                            Immerse yourself in China's rich heritage with traditional handicraft workshops, rural life experiences, and intangible cultural heritage projects.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Learn More
+                            <i class="fa fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="group bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1060/800/600" alt="Health & Wellness Journeys" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-heartbeat text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">Health & Wellness Journeys</h3>
+                        <p class="text-dark/70 mb-6">
+                            Rejuvenate your mind, body, and spirit with meditation retreats, Traditional Chinese Medicine experiences, and healing escapes.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Learn More
+                            <i class="fa fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="group bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 300ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1043/800/600" alt="Western Deep Expeditions" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-area-chart text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">Western Deep Expeditions</h3>
+                        <p class="text-dark/70 mb-6">
+                            Explore the majestic western regions with over 20 challenging routes, supported by professional guides and emergency rescue services.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Learn More
+                            <i class="fa fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-3xl font-serif font-semibold text-dark mb-8 text-center md:text-left animate-slide-up">Our Favorite Small Group Journeys</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/10/800/600" alt="Nature Exploration Trips" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-tree text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">Nature Exploration Trips</h3>
+                        <p class="text-dark/70 mb-6">
+                            Discover breathtaking landscapes with hiking on the Qinghai-Tibet Plateau, rainforest explorations in Yunnan, and more natural wonders.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Learn More
+                            <i class="fa fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="group bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1059/800/600" alt="Sports & Adventure Tourism" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-bolt text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">Sports & Adventure Tourism</h3>
+                        <p class="text-dark/70 mb-6">
+                            Experience the thrill with marathon travel packages, ski resort trips, and challenging expedition routes across China.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Learn More
+                            <i class="fa fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="group bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 300ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1044/800/600" alt="Carbon-Neutral Travel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-leaf text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">Carbon-Neutral Travel</h3>
+                        <p class="text-dark/70 mb-6">
+                            Travel responsibly with our "Dual Carbon Plan" on all western routes, with 10% of fees donated to local ecological funds.
+                        </p>
+                        <a href="#contact" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Learn More
+                            <i class="fa fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16 animate-slide-up">
+                <a href="#contact" class="inline-block bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                    Plan Your Custom Journey
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="why-choose-us" class="py-20 bg-gradient-to-br from-primary/5 to-primary/10 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+            <div class="absolute -top-20 -left-20 w-80 h-80 bg-primary/5 rounded-full"></div>
+            <div class="absolute bottom-20 right-20 w-60 h-60 bg-secondary/5 rounded-full"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">Why Choose Us?</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-dark/70 max-w-2xl mx-auto text-lg">
+                    Discover the unique advantages that set Journey Weaver apart and make us your ideal travel companion in China.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl animate-slide-up">
+                    <div class="flex flex-col md:flex-row items-start md:items-center mb-6 gap-6">
+                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa fa-map text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-semibold text-dark">Emotional Mapping</h3>
+                    </div>
+                    <p class="text-dark/70 leading-relaxed">
+                        We design journeys around your emotional needs and memory points, ensuring each experience resonates deeply and creates lasting impressions that transform into cherished memories.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="flex flex-col md:flex-row items-start md:items-center mb-6 gap-6">
+                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa fa-recycle text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-semibold text-dark">Sustainable & Responsible</h3>
+                    </div>
+                    <p class="text-dark/70 leading-relaxed">
+                        Our carbon-neutral routes, eco-friendly practices, and support for local communities ensure that your travels contribute positively to the destinations and people you visit.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl animate-slide-up">
+                    <div class="flex flex-col md:flex-row items-start md:items-center mb-6 gap-6">
+                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa fa-users text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-semibold text-dark">Expert Local Team</h3>
+                    </div>
+                    <p class="text-dark/70 leading-relaxed">
+                        With over 10 years of industry experience in culture, nature, and high-risk expeditions, our team brings unparalleled expertise and insider knowledge to every journey.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="flex flex-col md:flex-row items-start md:items-center mb-6 gap-6">
+                        <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa fa-tags text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-semibold text-dark">Flexible & Transparent Pricing</h3>
+                    </div>
+                    <p class="text-dark/70 leading-relaxed">
+                        We offer tailored packages for mid-to-high-end travelers without compromising quality, with clear, upfront pricing and no hidden costs.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 animate-slide-up">
+                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">15+</div>
+                    <div class="text-dark/70 font-medium">Years Experience</div>
+                </div>
+                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">200+</div>
+                    <div class="text-dark/70 font-medium">Journeys Designed</div>
+                </div>
+                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">5000+</div>
+                    <div class="text-dark/70 font-medium">Happy Travelers</div>
+                </div>
+                <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl shadow-lg text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">98%</div>
+                    <div class="text-dark/70 font-medium">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recognitions" class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h4 class="text-center text-lg font-medium text-dark/80 mb-8 animate-slide-up">Our Recognitions & Partners</h4>
+            <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 animate-slide-up">
+                <div class="text-3xl font-bold text-primary/60 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    Virtuoso
+                </div>
+                <div class="text-3xl font-bold text-primary/60 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    Condé Nast
+                </div>
+                <div class="text-3xl font-bold text-primary/60 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    Nat Geo
+                </div>
+                <div class="text-3xl font-bold text-primary/60 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    Travel + Leisure
+                </div>
+                <div class="text-3xl font-bold text-primary/60 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                    Songtsam
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="travelogue" class="py-20 bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">Journey Weaver's Travelogue</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-dark/70 max-w-2xl mx-auto text-lg">
+                    Get inspired by our stories, guides, and tips from the road.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1011/800/600" alt="Travel Story" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <p class="text-primary font-medium text-sm mb-2">Travel Story</p>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">A Deep Dive into Yunnan's Tea Culture</h3>
+                        <p class="text-dark/70 mb-6">
+                            Discovering the ancient Tea Horse Road and the secrets of Pu-erh tea brewing from local masters.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Read More
+                            <i class="fa fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1025/800/600" alt="Travel Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <p class="text-primary font-medium text-sm mb-2">Travel Guide</p>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">First Timer's Guide to Beijing</h3>
+                        <p class="text-dark/70 mb-6">
+                            Must-see sights, hidden gems in ancient hutongs, and how to navigate the city like a local.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Read More
+                            <i class="fa fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 300ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="https://picsum.photos/id/1047/800/600" alt="Testimonial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-8">
+                        <p class="text-primary font-medium text-sm mb-2">Testimonial</p>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">My Journey to the Western Frontier</h3>
+                        <p class="text-dark/70 mb-6">
+                            "The Western Deep Expedition was life-changing. Journey Weaver's team handled everything perfectly."
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Read More
+                            <i class="fa fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16 animate-slide-up">
+                <a href="#travelogue" class="inline-block bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                    Explore All Stories
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">Our Team</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-dark/70 max-w-2xl mx-auto text-lg">
+                    Meet the passionate minds behind Journey Weaver, each bringing unique expertise to craft unforgettable travel experiences.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
+                <div class="group animate-slide-up">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white z-10">
+                            <p class="leading-relaxed">
+                                Pioneer in cultural and sustainable tourism with 15 years of experience, dedicated to creating meaningful travel experiences that connect people with destinations.
+                            </p>
+                            <div class="flex gap-4 mt-6">
+                                <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                                    <i class="fa fa-linkedin text-white"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                                    <i class="fa fa-twitter text-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="Li Linyi.png" alt="Li Linyi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-dark mb-1">Li Linyi</h3>
+                    <p class="text-primary font-medium">CEO & Founder</p>
+                </div>
+                
+                <div class="group animate-slide-up" style="animation-delay: 100ms;">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white z-10">
+                            <p class="leading-relaxed">
+                                ESG integration expert and designer of the "Carbon Neutral Travel Fund," committed to making travel sustainable and environmentally responsible.
+                            </p>
+                            <div class="flex gap-4 mt-6">
+                                <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                                    <i class="fa fa-linkedin text-white"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                                    <i class="fa fa-twitter text-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="Tu Zhuolun.png" alt="Tu Zhuolun" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-dark mb-1">Tu Zhuolun</h3>
+                    <p class="text-primary font-medium">CFO</p>
+                </div>
+                
+                <div class="group animate-slide-up" style="animation-delay: 200ms;">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white z-10">
+                            <p class="leading-relaxed">
+                                Leading outdoor expert and first Chinese woman to complete the "7+2" expedition, bringing unparalleled adventure expertise to our travel designs.
+                            </p>
+                            <div class="flex gap-4 mt-6">
+                                <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                                    <i class="fa fa-linkedin text-white"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                                    <i class="fa fa-instagram text-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="Zhang Zhihan.png" alt="Zhang Zhihan" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-dark mb-1">Zhang Zhihan</h3>
+                    <p class="text-primary font-medium">Director of Operations</p>
+                </div>
+                
+                <div class="group animate-slide-up" style="animation-delay: 300ms;">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white z-10">
+                            <p class="leading-relaxed">
+                                Creator of the patented "Travel Emotional Prediction Model," combining data science and human psychology to design emotionally resonant travel experiences.
+                            </p>
+                            <div class="flex gap-4 mt-6">
+                                <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                                    <i class="fa fa-linkedin text-white"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                                    <i class="fa fa-github text-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="Yi Sijia.png" alt="Yi Sijia" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-dark mb-1">Yi Sijia</h3>
+                    <p class="text-primary font-medium">Data & AI Director</p>
+                </div>
+                
+                <div class="group animate-slide-up" style="animation-delay: 400ms;">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 aspect-[3/4]">
+                        <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white z-10">
+                            <p class="leading-relaxed">
+                                Internationally acclaimed experience designer for cultural IP and immersive storytelling, transforming travel into artful narratives and memorable moments.
+                            </p>
+                            <div class="flex gap-4 mt-6">
+                                <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                                    <i class="fa fa-linkedin text-white"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                                    <i class="fa fa-behance text-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="Dai Shiqi.png" alt="Dai Shiqi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-dark mb-1">Dai Shiqi</h3>
+                    <p class="text-primary font-medium">Chief Design Officer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="travelers" class="py-20 bg-gradient-to-b from-white to-primary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">Who Travels With Us</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-dark/70 max-w-2xl mx-auto text-lg">
+                    Our journeys attract diverse travelers united by their passion for meaningful, authentic experiences.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl animate-slide-up">
+                    <div class="h-48 bg-primary/10 flex items-center justify-center">
+                        <i class="fa fa-users text-primary text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">Core Travelers</h3>
+                        <ul class="space-y-3 text-dark/70">
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Chinese professionals (30–50) seeking immersive cultural experiences</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Overseas Chinese reconnecting with their heritage</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Culture-loving international visitors</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="h-48 bg-primary/10 flex items-center justify-center">
+                        <i class="fa fa-compass text-primary text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">Young Explorers</h3>
+                        <ul class="space-y-3 text-dark/70">
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Solo travelers seeking authentic adventures</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Small groups looking for shareable experiences</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Digital nomads combining work and cultural immersion</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-xl animate-slide-up" style="animation-delay: 300ms;">
+                    <div class="h-48 bg-primary/10 flex items-center justify-center">
+                        <i class="fa fa-briefcase text-primary text-6xl"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-4">Corporate Clients</h3>
+                        <ul class="space-y-3 text-dark/70">
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Custom team-building trips with cultural empowerment</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Executive retreats in inspiring natural settings</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa fa-check text-secondary mt-1 flex-shrink-0"></i>
+                                <span>Corporate social responsibility (CSR) travel programs</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="partnerships" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">Our Partnerships</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-dark/70 max-w-2xl mx-auto text-lg">
+                    We collaborate with the finest establishments and organizations to deliver exceptional experiences.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div class="bg-light rounded-2xl p-8 transform transition-all duration-500 hover:shadow-lg animate-slide-up">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fa fa-bed text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-semibold text-dark">Boutique Hotels</h3>
+                    </div>
+                    <p class="text-dark/70 mb-6">
+                        We partner with exclusive boutique hotels like Songtsam that blend seamlessly with local culture and environment, ensuring authentic stays that enhance your journey.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-white px-5 py-3 rounded-full shadow-sm text-dark/80">Songtsam</div>
+                        <div class="bg-white px-5 py-3 rounded-full shadow-sm text-dark/80">Aman</div>
+                        <div class="bg-white px-5 py-3 rounded-full shadow-sm text-dark/80">Banyan Tree</div>
+                    </div>
+                </div>
+                
+                <div class="bg-light rounded-2xl p-8 transform transition-all duration-500 hover:shadow-lg animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fa fa-leaf text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-semibold text-dark">Nature Reserves</h3>
+                    </div>
+                    <p class="text-dark/70 mb-6">
+                        Our collaboration with local heritage and nature reserves supports conservation efforts while providing privileged access to pristine ecosystems.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-white px-5 py-3 rounded-full shadow-sm text-dark/80">Jiuzhaigou</div>
+                        <div class="bg-white px-5 py-3 rounded-full shadow-sm text-dark/80">Zhangjiajie</div>
+                        <div class="bg-white px-5 py-3 rounded-full shadow-sm text-dark/80">Huangshan</div>
+                    </div>
+                </div>
+                
+                <div class="bg-light rounded-2xl p-8 transform transition-all duration-500 hover:shadow-lg animate-slide-up">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fa fa-university text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-semibold text-dark">Institutional Partners</h3>
+                    </div>
+                    <p class="text-dark/70 mb-6">
+                        We work with UNESCO and China Tourism Academy to ensure our tours respect cultural heritage sites and contribute to sustainable tourism development.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-white px-5 py-3 rounded-full shadow-sm text-dark/80">UNESCO</div>
+                        <div class="bg-white px-5 py-3 rounded-full shadow-sm text-dark/80">China Tourism Academy</div>
+                    </div>
+                </div>
+                
+                <div class="bg-light rounded-2xl p-8 transform transition-all duration-500 hover:shadow-lg animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fa fa-globe text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-serif font-semibold text-dark">Distribution Partners</h3>
+                    </div>
+                    <p class="text-dark/70 mb-6">
+                        Our partnerships with OTAs and government tourism platforms help us reach a wider audience while maintaining our commitment to quality experiences.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-white px-5 py-3 rounded-full shadow-sm text-dark/80">Ctrip</div>
+                        <div class="bg-white px-5 py-3 rounded-full shadow-sm text-dark/80">Government Platforms</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="py-20 bg-primary/5 relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-[clamp(2rem,4vw,3rem)] font-serif font-bold text-dark mb-4">Contact Us</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-dark/70 max-w-2xl mx-auto text-lg">
+                    Ready to start your journey? Reach out to us today and let's craft your perfect experience.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div class="bg-white p-8 md:p-10 rounded-2xl shadow-lg transform hover:shadow-xl transition-shadow duration-300 animate-slide-up">
+                    <h3 class="text-2xl font-serif font-semibold text-dark mb-6">Send Us a Message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-dark/80 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none" placeholder="Your name" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-dark/80 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none" placeholder="Your email" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-dark/80 font-medium mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none" placeholder="How can we help you?" required>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-dark/80 font-medium mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none resize-none" placeholder="Tell us about your travel interests and requirements" required></textarea>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="space-y-8 animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-serif font-semibold text-dark mb-6">Our Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-building text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Company</h4>
+                                    <p class="text-dark/70">Shanghai Journey Weaving Travel Agency Co., Ltd.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-map-marker text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Address</h4>
+                                    <p class="text-dark/70">No. 1234, Huaihai Middle Road, Xuhui District, Shanghai</p>
+                                    <p class="text-dark/70">Postal Code: 200031</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-fax text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Fax</h4>
+                                    <p class="text-dark/70">021-64227654 / 021-64228567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-globe text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Website</h4>
+                                    <a href="https://www.journeyweaver-sh.com" class="text-primary hover:text-secondary transition-colors">www.journeyweaver-sh.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Email</h4>
+                                    <a href="mailto:service@journeyweaver-sh.com" class="text-primary hover:text-secondary transition-colors">service@journeyweaver-sh.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-80 bg-white">
+                        <iframe src="https://uri.amap.com/marker?position=121.44823,31.21175&name=上海市徐汇区淮海中路1234号&coordinate=gaode&callnative=0" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Journey Weaver Office Location"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-dark text-white pt-16 pb-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="flex items-center">
+                        <a href="#" class="flex items-center">
+                            <span class="bg-white p-2 rounded-lg">
+                                <img src="图片1.png" alt="Journey Weaver Logo" class="h-10 sm:h-12 w-auto object-contain">
+                            </span>
+                            <span class="ml-3 text-xl font-bold text-white">Journey Weaver</span>
+                        </a>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Weave Journeys, Cherish Memories. Specializing in emotionally-driven, sustainable travel experiences across China.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-facebook text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-instagram text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-wechat text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-linkedin text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-400 hover:text-secondary transition-colors duration-300">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-secondary transition-colors duration-300">Our Journeys</a></li>
+                        <li><a href="#why-choose-us" class="text-gray-400 hover:text-secondary transition-colors duration-300">Why Choose Us</a></li>
+                        <li><a href="#travelogue" class="text-gray-400 hover:text-secondary transition-colors duration-300">Travelogue</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-secondary transition-colors duration-300">Our Team</a></li>
+                        <li><a href="#partnerships" class="text-gray-400 hover:text-secondary transition-colors duration-300">Partnerships</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-400 hover:text-secondary transition-colors duration-300">Cultural Immersion</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-secondary transition-colors duration-300">Nature Exploration</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-secondary transition-colors duration-300">Health & Wellness</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-secondary transition-colors duration-300">Adventure Tourism</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-secondary transition-colors duration-300">Western Expeditions</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-secondary transition-colors duration-300">Carbon-Neutral Travel</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-secondary mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-400">
+                                <strong class="text-white">Shanghai (HQ)</strong><br>
+                                No. 1234, Huaihai Middle Road, Xuhui District, 200031
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-secondary mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-400">
+                                <strong class="text-white">Beijing</strong><br>
+                                10F, Oriental Plaza, Dongcheng District, 100006
+                            </span>
+                        </li>
+                         <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-secondary mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-400">
+                                <strong class="text-white">Chengdu</strong><br>
+                                26F, Hangkong Road, Wuhou District, 610041
+                            </span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa fa-phone text-secondary flex-shrink-0"></i>
+                            <a href="tel:+8602164227654" class="text-gray-400 hover:text-secondary transition-colors duration-300">+86 021-64227654</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa fa-envelope text-secondary flex-shrink-0"></i>
+                            <a href="mailto:service@journeyweaver-sh.com" class="text-gray-400 hover:text-secondary transition-colors duration-300">service@journeyweaver-sh.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 my-10"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-gray-400 text-center md:text-left text-sm">
+                    © 2025 Shanghai Journey Weaving Travel Agency Co., Ltd. All rights reserved.
+                </p>
+                <div class="flex gap-6 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors duration-300">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-secondary transition-colors duration-300">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#contact" class="fixed bottom-8 left-8 bg-primary text-white w-auto h-12 px-5 rounded-full flex items-center justify-center shadow-lg z-50 hover:bg-primary/90 transition-all duration-300 hidden md:flex">
+        <i class="fa fa-comments-o mr-2"></i>
+        <span>Contact & Connect</span>
+    </a>
+
+    <button type="button" id="ai-chat-widget" class="fixed bottom-8 right-8 bg-white text-primary w-14 h-14 rounded-full flex items-center justify-center shadow-xl z-50 hover:bg-light transition-all duration-300 animate-float">
+        <i class="fa fa-magic text-2xl"></i>
+        <div class="absolute bottom-full right-0 mb-3 bg-dark text-white text-sm px-4 py-2 rounded-lg shadow-lg hidden" id="ai-chat-tooltip">
+            Hi, I'm JourneyConcierge!
+        </div>
+    </button>
+    
+    <button id="scroll-to-top" class="fixed bottom-24 right-8 bg-secondary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 z-50 hover:bg-primary no-focus-ring md:bottom-8 md:right-28">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+    
+    <div id="auth-modal" class="fixed inset-0 flex items-center justify-center bg-dark/70 z-[100] hidden" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden max-w-3xl w-full mx-4 max-h-[90vh] animate-scale-in">
+            <div class="bg-primary pt-6 px-8 relative">
+                <div class="flex border-b border-primary/50">
+                    <button id="auth-tab-signin" class="auth-tab-btn active font-semibold py-3 px-6 rounded-t-lg text-lg" role="tab" aria-selected="true">
+                        Sign In
+                    </button>
+                    <button id="auth-tab-register" class="auth-tab-btn font-semibold py-3 px-6 rounded-t-lg text-lg" role="tab" aria-selected="false">
+                        Register
+                    </button>
+                </div>
+                <button id="close-auth-modal" class="absolute right-8 top-6 text-white hover:text-secondary text-2xl transition-colors duration-300" aria-label="Close authentication form">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="p-8 overflow-y-auto max-h-[calc(90vh-100px)]">
+                
+                <div id="auth-pane-signin" role="tabpanel">
+                    <form id="signin-form" class="space-y-6">
+                        <h2 id="auth-modal-title" class="text-2xl font-serif font-bold text-dark mb-4">Welcome Back!</h2>
+                        <div>
+                            <label for="signin-email" class="block text-sm font-medium text-dark mb-1">Email Address <span class="text-secondary">*</span></label>
+                            <input type="email" id="signin-email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20" required>
+                        </div>
+                        <div>
+                            <label for="signin-password" class="block text-sm font-medium text-dark mb-1">Password <span class="text-secondary">*</span></label>
+                            <input type="password" id="signin-password" name="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20" required>
+                        </div>
+                        <div class="text-right">
+                            <a href="#" class="text-sm text-primary hover:text-secondary font-medium transition-colors duration-200">Forgot Password?</a>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02]">
+                                Sign In
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div id="auth-pane-register" class="hidden" role="tabpanel">
+                    <form id="register-form" class="space-y-6" novalidate>
+                        <h2 class="text-2xl font-serif font-bold text-dark mb-4">Create Your Account</h2>
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-semibold text-dark">Personal Information</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="register-first-name" class="block text-sm font-medium text-dark mb-1">First Name <span class="text-secondary">*</span></label>
+                                    <input type="text" id="register-first-name" name="firstName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20" required aria-describedby="register-first-name-error">
+                                    <div class="text-red-500 text-sm hidden mt-1" id="register-first-name-error" role="alert">Please enter your first name</div>
+                                </div>
+                                <div>
+                                    <label for="register-last-name" class="block text-sm font-medium text-dark mb-1">Last Name <span class="text-secondary">*</span></label>
+                                    <input type="text" id="register-last-name" name="lastName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20" required aria-describedby="register-last-name-error">
+                                    <div class="text-red-500 text-sm hidden mt-1" id="register-last-name-error" role="alert">Please enter your last name</div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="register-email" class="block text-sm font-medium text-dark mb-1">Email Address <span class="text-secondary">*</span></label>
+                                <input type="email" id="register-email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20" required aria-describedby="register-email-error">
+                                <div class="text-red-500 text-sm hidden mt-1" id="register-email-error" role="alert">Please enter a valid email address</div>
+                            </div>
+                            <div>
+                                <label for="register-phone" class="block text-sm font-medium text-dark mb-1">Phone Number</label>
+                                <input type="tel" id="register-phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20" aria-describedby="register-phone-error">
+                                <div class="text-red-500 text-sm hidden mt-1" id="register-phone-error" role="alert">Please enter a valid phone number</div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-semibold text-dark">Account Information</h3>
+                            <div>
+                                <label for="register-username" class="block text-sm font-medium text-dark mb-1">Username <span class="text-secondary">*</span></label>
+                                <input type="text" id="register-username" name="username" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20" required aria-describedby="register-username-error">
+                                <div class="text-red-500 text-sm hidden mt-1" id="register-username-error" role="alert">Username must be at least 5 characters</div>
+                            </div>
+                            <div>
+                                <label for="register-password" class="block text-sm font-medium text-dark mb-1">Password <span class="text-secondary">*</span></label>
+                                <div class="relative">
+                                    <input type="password" id="register-password" name="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20 pr-10" required aria-describedby="register-password-error">
+                                    <button type="button" id="toggle-register-password" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-dark no-focus-ring" aria-label="Show password">
+                                        <i class="fa fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="text-red-500 text-sm hidden mt-1" id="register-password-error" role="alert">Password must be at least 8 characters and include uppercase, lowercase, number and special character</div>
+                            </div>
+                            <div>
+                                <label for="register-confirm-password" class="block text-sm font-medium text-dark mb-1">Confirm Password <span class="text-secondary">*</span></label>
+                                <input type="password" id="register-confirm-password" name="confirmPassword" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20" required aria-describedby="register-confirm-password-error">
+                                <div class="text-red-500 text-sm hidden mt-1" id="register-confirm-password-error" role="alert">Passwords do not match</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <input type="checkbox" id="register-terms" name="terms" class="mt-1 h-4 w-4" required aria-describedby="register-terms-error">
+                            <label for="register-terms" class="text-sm text-dark">I agree to the <a href="#" class="text-primary hover:text-secondary transition-colors duration-200">Terms and Conditions</a> and <a href="#" class="text-primary hover:text-secondary transition-colors duration-200">Privacy Policy</a> <span class="text-secondary">*</span></label>
+                        </div>
+                        <div class="text-red-500 text-sm hidden -mt-2" id="register-terms-error" role="alert">You must agree to the terms and conditions</div>
+                        <div>
+                            <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02]">
+                                Create Account
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div id="register-success-modal" class="fixed inset-0 flex items-center justify-center bg-dark/70 z-[101] hidden" role="dialog" aria-modal="true" aria-labelledby="register-success-title">
+        <div class="bg-white p-8 rounded-xl max-w-md w-full mx-4 text-center animate-scale-in">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa fa-check text-2xl text-green-500"></i>
+            </div>
+            <h3 id="register-success-title" class="text-2xl font-serif font-bold text-dark mb-2">Registration Successful!</h3>
+            <p class="text-dark mb-6">Thank you for joining Journey Weaver. Your account has been created successfully.</p>
+            <button id="close-success-modal" class="bg-primary hover:bg-primary/90 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const header = document.getElementById('header');
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const contactForm = document.getElementById('contact-form');
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        // Dropdown Menu Functionality
+        function initDropdownMenus() {
+            // Desktop Dropdown Hover Effects (Using JS for ARIA attributes, but CSS for visibility)
+            const desktopDropdownGroups = document.querySelectorAll('.relative.group');
+            desktopDropdownGroups.forEach(group => {
+                const button = group.querySelector('button');
+                const dropdown = group.querySelector('.absolute');
+
+                if (button && dropdown) {
+                    group.addEventListener('mouseenter', () => {
+                        button.setAttribute('aria-expanded', 'true');
+                        dropdown.classList.add('opacity-100', 'visible', 'scale-100');
+                        dropdown.classList.remove('opacity-0', 'invisible', 'scale-95');
+                    });
+                    
+                    group.addEventListener('mouseleave', () => {
+                        button.setAttribute('aria-expanded', 'false');
+                        dropdown.classList.remove('opacity-100', 'visible', 'scale-100');
+                        dropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+                    });
+                }
+            });
+
+            // Mobile Dropdown Toggle Functionality
+            const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+            mobileDropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const dropdownId = toggle.getAttribute('aria-controls');
+                    const dropdown = document.getElementById(dropdownId);
+                    const icon = toggle.querySelector('i');
+                    
+                    // Toggle current dropdown
+                    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                    toggle.setAttribute('aria-expanded', !isExpanded);
+                    
+                    if (isExpanded) {
+                        dropdown.classList.add('hidden');
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        dropdown.classList.remove('hidden');
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                    
+                    // Close other mobile dropdowns to prevent multiple open at once
+                    mobileDropdownToggles.forEach(otherToggle => {
+                        if (otherToggle !== toggle) {
+                            const otherDropdownId = otherToggle.getAttribute('aria-controls');
+                            const otherDropdown = document.getElementById(otherDropdownId);
+                            const otherIcon = otherToggle.querySelector('i');
+                            
+                            otherToggle.setAttribute('aria-expanded', 'false');
+                            otherDropdown.classList.add('hidden');
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                });
+            });
+        }
+        
+        // Enhanced navigation scroll effect with smooth transition
+        window.addEventListener('scroll', function() {
+            // Header background change on scroll
+            if (window.scrollY > 50) {
+                header.classList.add('bg-dark/95', 'bg-blur', 'shadow-lg', 'scrolled');
+                header.classList.remove('bg-transparent');
+                
+                // 获取相关元素
+                const heroLogo = document.getElementById('hero-logo');
+                const headerLogoContainer = document.getElementById('header-logo-container');
+                const navLogoImg = document.querySelector('.nav-logo-img');
+                
+                // Show scroll to top button with fade effect
+                if (scrollToTopBtn) {
+                    scrollToTopBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+                    scrollToTopBtn.classList.add('opacity-100', 'visible', 'translate-y-0');
+                }
+                
+                // 移除滚动时的LOGO动画效果
+                if (heroLogo) {
+                    // 计算滚动比例，只控制透明度，不改变位置
+                    const scrollProgress = Math.min(window.scrollY / 300, 1);
+                    
+                    // 只控制透明度，保持位置不变
+                    heroLogo.style.opacity = `${1 - scrollProgress}`;
+                    // 移除对transform和top的强制设置，保持CSS定义的位置
+                }
+                
+                // 导航栏LOGO容器显示
+                if (headerLogoContainer) {
+                    // 根据滚动进度显示导航栏LOGO
+                    headerLogoContainer.style.opacity = `${Math.min(window.scrollY / 150, 1)}`;
+                    
+                    // 更新导航栏LOGO容器中的文本颜色
+                    const headerLogoText = headerLogoContainer.querySelector('span');
+                    if (headerLogoText) {
+                        headerLogoText.classList.remove('text-dark');
+                        headerLogoText.classList.add('text-white');
+                    }
+                }
+            } else {
+                header.classList.remove('bg-dark/95', 'bg-blur', 'shadow-lg', 'scrolled');
+                header.classList.add('bg-transparent');
+                
+                // 获取相关元素
+                const heroLogo = document.getElementById('hero-logo');
+                const headerLogoContainer = document.getElementById('header-logo-container');
+                
+                // 恢复轮播图LOGO初始状态
+                if (heroLogo) {
+                    heroLogo.style.transform = 'translateX(0) translateY(0) scale(1)';
+                    heroLogo.style.opacity = '1';
+                    // 移除对top的强制设置，让CSS类来控制位置
+                }
+                
+                // 隐藏导航栏LOGO
+                if (headerLogoContainer) {
+                    headerLogoContainer.style.opacity = '0';
+                    
+                    // 更新导航栏LOGO容器中的文本颜色
+                    const headerLogoText = headerLogoContainer.querySelector('span');
+                    if (headerLogoText) {
+                        headerLogoText.classList.remove('text-dark');
+                        headerLogoText.classList.add('text-white');
+                    }
+                }
+                
+                // Hide scroll to top button with fade effect
+                if (scrollToTopBtn) {
+                    scrollToTopBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
+                    scrollToTopBtn.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                }
+            }
+            
+            // Update active navigation based on scroll position
+            updateActiveNavigation();
+        });
+        
+        // Enhanced mobile menu toggle with animation
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                
+                // Toggle menu visibility
+                mobileMenu.classList.toggle('hidden');
+                
+                // Toggle icon between menu and x
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+                
+                // Prevent body scroll when menu is open
+                document.body.classList.toggle('overflow-hidden', !isExpanded);
+            });
+        }
+        
+        // Enhanced smooth scrolling with offset and animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Close mobile menu if open
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                    document.body.classList.remove('overflow-hidden');
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    let headerHeight = document.getElementById('header').offsetHeight;
+                    // If header is transparent, top-aux-bar is visible, so account for it
+                    if (window.scrollY <= 50) {
+                         const auxBar = document.querySelector('.top-aux-bar');
+                         if(auxBar) headerHeight = auxBar.offsetHeight + headerHeight;
+                    }
+
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Enhanced contact form validation with real-time feedback
+        if (contactForm) {
+            const formInputs = contactForm.querySelectorAll('input, textarea');
+            formInputs.forEach(input => {
+                input.addEventListener('input', () => validateField(input));
+                input.addEventListener('blur', () => validateField(input));
+            });
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+                formInputs.forEach(input => {
+                    if (!validateField(input)) isValid = false;
+                });
+                
+                if (isValid) {
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> Sending...';
+                    }
+                    setTimeout(() => {
+                        contactForm.innerHTML = `
+                            <div class="text-center p-8 rounded-lg animate-fadeIn">
+                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fa fa-check text-2xl text-green-500"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2 text-dark">Thank You!</h3>
+                                <p class="text-dark/70 mb-6">Your message has been sent successfully. We will get back to you soon.</p>
+                            </div>
+                        `;
+                    }, 1500);
+                }
+            });
+        }
+        
+        // Field validation function
+        function validateField(field) {
+            const fieldId = field.id;
+            const value = field.value.trim();
+            let isValid = true;
+            let errorMessage = '';
+            
+            const errorContainer = field.parentNode.querySelector('.error-message');
+            if (errorContainer) errorContainer.remove();
+            field.classList.remove('border-red-500');
+            field.classList.add('border-gray-300');
+            
+            switch(fieldId) {
+                case 'name':
+                    if (!value) { errorMessage = 'Name is required'; isValid = false; }
+                    break;
+                case 'email':
+                    if (!value) { errorMessage = 'Email is required'; isValid = false; }
+                    else if (!isValidEmail(value)) { errorMessage = 'Please enter a valid email address'; isValid = false; }
+                    break;
+                case 'subject':
+                    if (!value) { errorMessage = 'Subject is required'; isValid = false; }
+                    break;
+                case 'message':
+                    if (!value) { errorMessage = 'Message is required'; isValid = false; }
+                    break;
+            }
+            
+            if (!isValid) {
+                displayError(field, errorMessage);
+            } else {
+                field.classList.remove('border-gray-300', 'border-red-500');
+                field.classList.add('border-green-500');
+            }
+            return isValid;
+        }
+        
+        // Email validation function
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+        
+        // Improved error display
+        function displayError(field, message) {
+            const errorElement = document.createElement('div');
+            errorElement.className = 'error-message text-red-500 text-sm mt-1';
+            errorElement.textContent = message;
+            field.parentNode.appendChild(errorElement);
+            
+            field.classList.remove('border-gray-300', 'border-green-500');
+            field.classList.add('border-red-500');
+        }
+        
+        // Enhanced scroll to top functionality
+        if (scrollToTopBtn) {
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Enhanced scroll animation with intersection observer
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of element is visible
+            });
+            
+            document.querySelectorAll('.animate-slide-up, .animate-fade-in, .animate-scale-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        // Function to update active navigation item based on scroll position
+        function updateActiveNavigation() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY;
+            let headerHeight = header.offsetHeight;
+            if (window.scrollY <= 50) {
+                const auxBar = document.querySelector('.top-aux-bar');
+                if(auxBar) headerHeight = auxBar.offsetHeight + headerHeight;
+            }
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - headerHeight - 20; // 20px buffer
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+                
+                if (navLink) {
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+                            link.classList.remove('text-secondary', 'font-bold');
+                            if(window.scrollY > 50) link.classList.add('text-white');
+                        });
+                        navLink.classList.add('text-secondary', 'font-bold');
+                        navLink.classList.remove('text-white');
+                    } else {
+                        navLink.classList.remove('text-secondary', 'font-bold');
+                         if(window.scrollY > 50) navLink.classList.add('text-white');
+                    }
+                }
+            });
+        }
+        
+        // Add keyboard accessibility enhancements
+        function addKeyboardAccessibility() {
+            const interactiveElements = document.querySelectorAll('a, button, input, textarea, [tabindex="0"]');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('focus', function() {
+                    if (!this.classList.contains('no-focus-ring')) {
+                         this.classList.add('ring-2', 'ring-secondary', 'ring-offset-2', 'outline-none');
+                    }
+                });
+                element.addEventListener('blur', function() {
+                    this.classList.remove('ring-2', 'ring-secondary', 'ring-offset-2');
+                });
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    if (icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
+                    document.body.classList.remove('overflow-hidden');
+                    mobileMenuBtn.focus();
+                }
+            });
+            
+            const desktopDropdownGroups = document.querySelectorAll('.relative.group');
+            desktopDropdownGroups.forEach(group => {
+                const button = group.querySelector('button');
+                const dropdown = group.querySelector('.absolute');
+                const links = dropdown ? dropdown.querySelectorAll('a') : [];
+
+                if(button && dropdown && links.length > 0) {
+                    button.addEventListener('keydown', function(e) {
+                        if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            dropdown.classList.add('opacity-100', 'visible', 'scale-100');
+                            dropdown.classList.remove('opacity-0', 'invisible', 'scale-95');
+                            links[0].focus();
+                        }
+                    });
+
+                    links.forEach((link, index) => {
+                        link.addEventListener('keydown', function(e) {
+                            if (e.key === 'ArrowDown') {
+                                e.preventDefault();
+                                const nextLink = links[index + 1] || links[0];
+                                nextLink.focus();
+                            } else if (e.key === 'ArrowUp') {
+                                e.preventDefault();
+                                const prevLink = links[index - 1] || links[links.length - 1];
+                                prevLink.focus();
+                            } else if (e.key === 'Escape') {
+                                e.preventDefault();
+                                dropdown.classList.remove('opacity-100', 'visible', 'scale-100');
+                                dropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+                                button.focus();
+                            }
+                        });
+                    });
+                }
+            });
+        }
+        
+        // Initialize all functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all core functions
+            initDropdownMenus();
+            initScrollAnimations();
+            addKeyboardAccessibility();
+            
+            // Trigger initial scroll event to set correct header state
+            window.dispatchEvent(new Event('scroll'));
+            
+            // === MODIFIED: Auth Modal Functionality ===
+            
+            // Auth Modal Elements
+            const authModal = document.getElementById('auth-modal');
+            const openAuthModalButtons = [
+                document.getElementById('open-auth-modal'),
+                document.getElementById('mobile-open-auth-modal')
+            ];
+            const closeAuthModalButton = document.getElementById('close-auth-modal');
+            
+            // Tab Elements
+            const authTabSignin = document.getElementById('auth-tab-signin');
+            const authTabRegister = document.getElementById('auth-tab-register');
+            const authPaneSignin = document.getElementById('auth-pane-signin');
+            const authPaneRegister = document.getElementById('auth-pane-register');
+            
+            // Register Form (from original code)
+            const registerForm = document.getElementById('register-form');
+            const registerSuccessModal = document.getElementById('register-success-modal');
+            const closeSuccessModalButton = document.getElementById('close-success-modal');
+            const togglePasswordButton = document.getElementById('toggle-register-password');
+            const registerPassword = document.getElementById('register-password');
+
+            // NEW: Signin Form
+            const signinForm = document.getElementById('signin-form');
+
+            // Open modal function
+            const openAuthModal = () => {
+                if (authModal) {
+                    authModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Prevent body scroll
+                    authModal.querySelector('input, button').focus();
+                }
+            };
+            
+            // Close modal function
+            const closeAuthModal = () => {
+                if (authModal) {
+                    authModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto'; // Allow body scroll
+                    document.getElementById('open-auth-modal').focus();
+                }
+            };
+            
+            // Open success modal function
+            const openSuccessModal = () => {
+                if (registerSuccessModal) {
+                    registerSuccessModal.classList.remove('hidden');
+                    closeAuthModal(); // Close auth modal first
+                    registerSuccessModal.querySelector('button').focus(); // Focus close button
+                }
+            };
+            
+            // Close success modal function
+            const closeSuccessModal = () => {
+                if (registerSuccessModal) {
+                    registerSuccessModal.classList.add('hidden');
+                    if (registerForm) registerForm.reset();
+                    document.getElementById('open-auth-modal').focus();
+                }
+            };
+
+            // NEW: Tab Switching Logic
+            if (authTabSignin && authTabRegister && authPaneSignin && authPaneRegister) {
+                authTabSignin.addEventListener('click', () => {
+                    authTabSignin.classList.add('active');
+                    authTabSignin.setAttribute('aria-selected', 'true');
+                    authPaneSignin.classList.remove('hidden');
+
+                    authTabRegister.classList.remove('active');
+                    authTabRegister.setAttribute('aria-selected', 'false');
+                    authPaneRegister.classList.add('hidden');
+                });
+
+                authTabRegister.addEventListener('click', () => {
+                    authTabRegister.classList.add('active');
+                    authTabRegister.setAttribute('aria-selected', 'true');
+                    authPaneRegister.classList.remove('hidden');
+
+                    authTabSignin.classList.remove('active');
+                    authTabSignin.setAttribute('aria-selected', 'false');
+                    authPaneSignin.classList.add('hidden');
+                });
+            }
+            
+            // Toggle password visibility
+            if (togglePasswordButton && registerPassword) {
+                togglePasswordButton.addEventListener('click', () => {
+                    const type = registerPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                    registerPassword.setAttribute('type', type);
+                    const icon = togglePasswordButton.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-eye');
+                        icon.classList.toggle('fa-eye-slash');
+                    }
+                });
+            }
+            
+            // Open modal event listeners
+            openAuthModalButtons.forEach(button => {
+                if (button) button.addEventListener('click', openAuthModal);
+            });
+            
+            // Close modal event listener
+            if (closeAuthModalButton) {
+                closeAuthModalButton.addEventListener('click', closeAuthModal);
+            }
+            
+            // Close success modal event listener
+            if (closeSuccessModalButton) {
+                closeSuccessModalButton.addEventListener('click', closeSuccessModal);
+            }
+            
+            // Close modal when clicking outside
+            if (authModal) {
+                authModal.addEventListener('click', (e) => {
+                    if (e.target === authModal) closeAuthModal();
+                });
+            }
+            
+            if (registerSuccessModal) {
+                registerSuccessModal.addEventListener('click', (e) => {
+                    if (e.target === registerSuccessModal) closeSuccessModal();
+                });
+            }
+
+            // Close modals on Escape key
+             document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (registerSuccessModal && !registerSuccessModal.classList.contains('hidden')) {
+                        closeSuccessModal();
+                    } else if (authModal && !authModal.classList.contains('hidden')) {
+                        closeAuthModal();
+                    }
+                }
+            });
+
+            // NEW: Signin Form Submission (Placeholder)
+            if (signinForm) {
+                signinForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    console.log('Sign in form submitted');
+                    alert('Sign in functionality is a placeholder.');
+                    closeAuthModal();
+                });
+            }
+            
+            // Form validation and submission
+            if (registerForm) {
+                const removeError = (field) => {
+                    const errorEl = document.getElementById(`${field.id}-error`);
+                    if (errorEl) errorEl.classList.add('hidden');
+                    field.classList.remove('border-red-500');
+                    field.classList.add('border-gray-300');
+                };
+                
+                const showError = (field) => {
+                    const errorEl = document.getElementById(`${field.id}-error`);
+                    if (errorEl) errorEl.classList.remove('hidden');
+                    field.classList.add('border-red-500');
+                    field.classList.remove('border-gray-300');
+                };
+
+                registerForm.querySelectorAll('input').forEach(input => {
+                    input.addEventListener('input', () => removeError(input));
+                });
+
+                registerForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    const errorElements = registerForm.querySelectorAll('[id$="-error"]');
+                    errorElements.forEach(el => el.classList.add('hidden'));
+                    registerForm.querySelectorAll('input').forEach(el => {
+                        el.classList.remove('border-red-500');
+                        el.classList.add('border-gray-300');
+                    });
+                    
+                    const firstName = document.getElementById('register-first-name');
+                    const lastName = document.getElementById('register-last-name');
+                    const email = document.getElementById('register-email');
+                    const phone = document.getElementById('register-phone');
+                    const username = document.getElementById('register-username');
+                    const password = document.getElementById('register-password');
+                    const confirmPassword = document.getElementById('register-confirm-password');
+                    const terms = document.getElementById('register-terms');
+                    
+                    let isValid = true;
+                    
+                    if (!firstName.value.trim()) { showError(firstName); isValid = false; }
+                    if (!lastName.value.trim()) { showError(lastName); isValid = false; }
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email.value.trim())) { showError(email); isValid = false; }
+                    if (phone.value.trim()) {
+                        const phoneRegex = /^[\d\s\-\+\(\)]{8,15}$/;
+                        if (!phoneRegex.test(phone.value.trim())) { showError(phone); isValid = false; }
+                    }
+                    if (username.value.trim().length < 5) { showError(username); isValid = false; }
+                    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                    if (!passwordRegex.test(password.value)) { showError(password); isValid = false; }
+                    if (password.value !== confirmPassword.value || !confirmPassword.value) { showError(confirmPassword); isValid = false; }
+                    if (!terms.checked) { showError(terms); isValid = false; }
+                    
+                    if (isValid) {
+                        console.log('Form submitted successfully!');
+                        openSuccessModal();
+                    } else {
+                        const firstError = registerForm.querySelector('.border-red-500');
+                        if(firstError) firstError.focus();
+                    }
+                });
+            }
+
+            // AI Chat Widget Tooltip
+            const aiWidget = document.getElementById('ai-chat-widget');
+            const aiTooltip = document.getElementById('ai-chat-tooltip');
+            if(aiWidget && aiTooltip) {
+                aiWidget.addEventListener('mouseenter', () => {
+                    aiTooltip.classList.remove('hidden');
+                });
+                 aiWidget.addEventListener('mouseleave', () => {
+                    aiTooltip.classList.add('hidden');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

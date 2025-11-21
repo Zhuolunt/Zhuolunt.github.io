@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Journey Weaver | Get in Touch</title>
+    <meta name="description" content="Contact Journey Weaver to plan your perfect travel experience. Reach out via phone, email, or our contact form.">
+    <link rel="canonical" href="https://www.journeyweaver-sh.com/contact.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A6496',
+                        secondary: '#F4A261',
+                        accent: '#E9C46A',
+                        dark: '#0F172A',
+                        light: '#F8FAFC',
+                        muted: '#64748B',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', 'serif'; }
+        html { scroll-behavior: smooth; }
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .animate-slide-up.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-dark/95 shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="图片1.png" alt="Company Logo" class="h-14 w-auto object-contain rounded-lg" style="max-height: 72px; background-color: rgba(255,255,255,1); padding: 4px;">
+                    <span class="text-xl md:text-2xl font-serif font-bold text-white ml-2 hidden md:inline">Journey<span class="text-secondary">Weaver</span></span>
+                </a>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    
+                    <div class="relative group">
+                        <a href="what-we-offer.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center">
+                            What We Offer
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-[600px] bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100 mega-menu border border-gray-100">
+                            <div class="p-6">
+                                <div class="mb-4 pb-4 border-b border-gray-200">
+                                    <a href="what-we-offer.html" class="block text-primary hover:text-secondary font-semibold text-base mb-1 transition-colors duration-200">View All Services →</a>
+                                    <p class="text-dark/60 text-xs">Complete overview of our travel experiences</p>
+                                </div>
+                                <div class="grid grid-cols-3 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">By Type</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="all-journeys.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">All Journeys</a></li>
+                                            <li><a href="custom-journeys.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Custom Journeys</a></li>
+                                            <li><a href="small-group-journeys.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Small Group Journeys</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">By Experience</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="cultural-experiences.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Cultural Experiences</a></li>
+                                            <li><a href="adventure-travel.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Adventure Travel</a></li>
+                                            <li><a href="sustainable-tourism.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Sustainable Tourism</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">By Interest</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="all-journeys.html?interest=culinary" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Culinary</a></li>
+                                            <li><a href="all-journeys.html?interest=hiking" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Hiking (GUDAO)</a></li>
+                                            <li><a href="all-journeys.html?interest=archaeology" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Archaeology</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <a href="get-inspired.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center">
+                            Get Inspired
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-[400px] bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100 mega-menu border border-gray-100">
+                            <div class="p-6">
+                                <div class="mb-4 pb-4 border-b border-gray-200">
+                                    <a href="get-inspired.html" class="block text-primary hover:text-secondary font-semibold text-base mb-1 transition-colors duration-200">View All Inspiration →</a>
+                                    <p class="text-dark/60 text-xs">Stories, blogs, and travel experiences</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">Stories & Inspiration</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="travelogue.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Travelogue (Blog)</a></li>
+                                            <li><a href="travel-stories.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Travel Stories</a></li>
+                                            <li><a href="testimonials.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Testimonials</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <a href="travel-resources.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center">
+                            Travel Resources
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-[400px] bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100 mega-menu border border-gray-100">
+                            <div class="p-6">
+                                <div class="mb-4 pb-4 border-b border-gray-200">
+                                    <a href="travel-resources.html" class="block text-primary hover:text-secondary font-semibold text-base mb-1 transition-colors duration-200">View All Resources →</a>
+                                    <p class="text-dark/60 text-xs">Guides, tips, and planning information</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">Planning Resources</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="travel-guides.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Travel Guides</a></li>
+                                            <li><a href="travel-tips.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Travel Tips</a></li>
+                                            <li><a href="visa-info.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Visa Info</a></li>
+                                            <li><a href="faq.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">FAQ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <a href="why-us.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center">
+                            Why Us
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-[400px] bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100 mega-menu border border-gray-100">
+                            <div class="p-6">
+                                <div class="mb-4 pb-4 border-b border-gray-200">
+                                    <a href="why-us.html" class="block text-primary hover:text-secondary font-semibold text-base mb-1 transition-colors duration-200">View All →</a>
+                                    <p class="text-dark/60 text-xs">Learn more about our company</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">About Us</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="why-us.html#awards" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Awards and Press</a></li>
+                                            <li><a href="why-us.html#people" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Our People</a></li>
+                                            <li><a href="why-us.html#sustainability" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Sustainability</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="careers.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium">Join Us</a>
+                    <a href="faq.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium">FAQ</a>
+                    <a href="contact.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium">Contact</a>
+                </nav>
+                <a href="contact.html" class="hidden md:block bg-secondary hover:bg-secondary/90 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105">PLAN YOUR JOURNEY</a>
+                <button id="mobile-menu-button" class="md:hidden text-white text-2xl focus:outline-none p-2"><i class="fa fa-bars"></i></button>
+            </div>
+
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden hidden bg-dark/95">
+            <div class="container mx-auto px-4 py-4 space-y-4">
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center">
+                        What We Offer
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="all-journeys.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">All Journeys</a>
+                        <a href="custom-journeys.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Custom Journeys</a>
+                        <a href="small-group-journeys.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Small Group Journeys</a>
+                        <a href="cultural-experiences.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Cultural Experiences</a>
+                        <a href="adventure-travel.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Adventure Travel</a>
+                        <a href="sustainable-tourism.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Sustainable Tourism</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center">
+                        Get Inspired
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="travelogue.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travelogue (Blog)</a>
+                        <a href="travel-stories.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travel Stories</a>
+                        <a href="testimonials.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Testimonials</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center">
+                        Travel Resources
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="travel-guides.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travel Guides</a>
+                        <a href="travel-tips.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travel Tips</a>
+                        <a href="visa-info.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Visa Info</a>
+                        <a href="faq.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">FAQ</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center">
+                        Why Us
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="why-us.html#awards" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Awards and Press</a>
+                        <a href="why-us.html#people" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Our People</a>
+                        <a href="why-us.html#sustainability" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Sustainability</a>
+                    </div>
+                </div>
+                <a href="careers.html" class="block text-white hover:text-secondary py-2 transition-colors duration-300">Join Us</a>
+                <a href="faq.html" class="block text-white hover:text-secondary py-2 transition-colors duration-300">FAQ</a>
+                <a href="contact.html" class="block text-white hover:text-secondary py-2 transition-colors duration-300">Contact</a>
+                <a href="contact.html" class="block bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-6 rounded-full text-center transition-all duration-300">
+                    PLAN YOUR JOURNEY
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-32 pb-20 bg-gradient-to-br from-primary to-primary/80 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center animate-slide-up">
+                <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6">Contact Us</h1>
+                <p class="text-xl text-white/90 mb-8">Ready to start your journey? Reach out to us today</p>
+                <nav class="flex justify-center items-center gap-2 text-sm">
+                    <a href="index.html" class="text-white/70 hover:text-white">Home</a>
+                    <i class="fa fa-chevron-right text-white/50 text-xs"></i>
+                    <span class="text-white">Contact</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-primary/5 relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-serif font-bold text-dark mb-4">Get in Touch</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-dark/70 max-w-2xl mx-auto text-lg">
+                    Ready to start your journey? Reach out to us today and let's craft your perfect experience.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8">
+                    <div class="bg-white p-8 md:p-10 rounded-2xl shadow-lg transform hover:shadow-xl transition-shadow duration-300 animate-slide-up">
+                        <h3 class="text-2xl font-serif font-semibold text-dark mb-6">Send Us a Message</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-dark/80 font-medium mb-2">Full Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none" placeholder="Your name" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-dark/80 font-medium mb-2">Email Address</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none" placeholder="Your email" required>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-dark/80 font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none" placeholder="How can we help you?" required>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-dark/80 font-medium mb-2">Message</label>
+                                <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none resize-none" placeholder="Tell us about your travel interests and requirements" required></textarea>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="w-full bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Newsletter Subscription -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg transform hover:shadow-xl transition-shadow duration-300 animate-slide-up" style="animation-delay: 200ms;">
+                        <h3 class="text-2xl font-serif font-semibold text-dark mb-4">Keep me updated!</h3>
+                        <p class="text-dark/70 mb-6">Stay up to date with the latest news direct to your inbox.</p>
+                        <form id="newsletter-form" class="space-y-4">
+                            <input type="email" id="newsletter-email" name="email" placeholder="Email address" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none" aria-label="Email address">
+                            <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+                                Subscribe
+                            </button>
+                        </form>
+                        <p class="text-xs text-dark/50 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-8 animate-slide-up" style="animation-delay: 150ms;">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-serif font-semibold text-dark mb-6">Our Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-building text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Company</h4>
+                                    <p class="text-dark/70">Shanghai Journey Weaving Travel Agency Co., Ltd.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-map-marker text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Address</h4>
+                                    <p class="text-dark/70">No. 1234, Huaihai Middle Road, Xuhui District, Shanghai</p>
+                                    <p class="text-dark/70">Postal Code: 200031</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-phone text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Phone</h4>
+                                    <a href="tel:+8602164227654" class="text-primary hover:text-secondary transition-colors">+86 021-64227654</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-fax text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Fax</h4>
+                                    <p class="text-dark/70">021-64227654 / 021-64228567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-globe text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Website</h4>
+                                    <a href="https://www.journeyweaver-sh.com" class="text-primary hover:text-secondary transition-colors">www.journeyweaver-sh.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fa fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-dark mb-1">Email</h4>
+                                    <a href="mailto:service@journeyweaver-sh.com" class="text-primary hover:text-secondary transition-colors">service@journeyweaver-sh.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-80 bg-white">
+                        <iframe src="https://uri.amap.com/marker?position=121.44823,31.21175&name=上海市徐汇区淮海中路1234号&coordinate=gaode&callnative=0" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Journey Weaver Office Location"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-16 pb-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="flex items-center">
+                        <a href="index.html" class="flex items-center">
+                            <span class="bg-white p-2 rounded-lg">
+                                <img src="图片1.png" alt="Journey Weaver Logo" class="h-10 sm:h-12 w-auto object-contain" loading="lazy">
+                            </span>
+                            <span class="ml-3 text-xl font-bold text-white">Journey Weaver</span>
+                        </a>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Weave Journeys, Cherish Memories. Specializing in emotionally-driven, sustainable travel experiences across China.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-facebook text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-instagram text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-wechat text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-linkedin text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-secondary transition-colors duration-300">About Us</a></li>
+                        <li><a href="all-journeys.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">All Journeys</a></li>
+                        <li><a href="why-us.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Why Choose Us</a></li>
+                        <li><a href="travelogue.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Travelogue</a></li>
+                        <li><a href="index.html#team" class="text-gray-400 hover:text-secondary transition-colors duration-300">Our Team</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">FAQ</a></li>
+                        <li><a href="index.html#partnerships" class="text-gray-400 hover:text-secondary transition-colors duration-300">Partnerships</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="cultural-experiences.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Cultural Immersion</a></li>
+                        <li><a href="adventure-travel.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Nature Exploration</a></li>
+                        <li><a href="custom-journeys.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Health & Wellness</a></li>
+                        <li><a href="adventure-travel.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Adventure Tourism</a></li>
+                        <li><a href="adventure-travel.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Western Expeditions</a></li>
+                        <li><a href="sustainable-tourism.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Carbon-Neutral Travel</a></li>
+                        <li><a href="small-group-journeys.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Small Group Tours</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-secondary mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-400">
+                                <strong class="text-white">Shanghai (HQ)</strong><br>
+                                No. 1234, Huaihai Middle Road, Xuhui District, 200031
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-secondary mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-400">
+                                <strong class="text-white">Beijing</strong><br>
+                                10F, Oriental Plaza, Dongcheng District, 100006
+                            </span>
+                        </li>
+                         <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-secondary mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-400">
+                                <strong class="text-white">Chengdu</strong><br>
+                                26F, Hangkong Road, Wuhou District, 610041
+                            </span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa fa-phone text-secondary flex-shrink-0"></i>
+                            <a href="tel:+8602164227654" class="text-gray-400 hover:text-secondary transition-colors duration-300">+86 021-64227654</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa fa-envelope text-secondary flex-shrink-0"></i>
+                            <a href="mailto:service@journeyweaver-sh.com" class="text-gray-400 hover:text-secondary transition-colors duration-300">service@journeyweaver-sh.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 my-10"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-gray-400 text-center md:text-left text-sm">
+                    © 2025 Shanghai Journey Weaving Travel Agency Co., Ltd. All rights reserved.
+                </p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Terms of Service</a>
+                    <a href="cookie-policy.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-slide-up').forEach(el => observer.observe(el));
+
+        // Contact Form Validation
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            const formInputs = contactForm.querySelectorAll('input, textarea');
+            formInputs.forEach(input => {
+                input.addEventListener('input', () => validateField(input));
+                input.addEventListener('blur', () => validateField(input));
+            });
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+                formInputs.forEach(input => {
+                    if (!validateField(input)) isValid = false;
+                });
+                
+                if (isValid) {
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin mr-2"></i> Sending...';
+                    }
+                    setTimeout(() => {
+                        contactForm.innerHTML = `
+                            <div class="text-center p-8 rounded-lg animate-fadeIn">
+                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fa fa-check text-2xl text-green-500"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold mb-2 text-dark">Thank You!</h3>
+                                <p class="text-dark/70 mb-6">Your message has been sent successfully. We will get back to you soon.</p>
+                            </div>
+                        `;
+                    }, 1500);
+                }
+            });
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                
+                // Toggle menu visibility
+                mobileMenu.classList.toggle('hidden');
+                
+                // Toggle icon between menu and x
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+                
+                // Prevent body scroll when menu is open
+                document.body.classList.toggle('overflow-hidden', !isExpanded);
+            });
+        }
+
+        // Mobile Dropdown Toggles
+        document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const dropdown = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                dropdown.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        function validateField(field) {
+            const fieldId = field.id;
+            const value = field.value.trim();
+            let isValid = true;
+            let errorMessage = '';
+            
+            const errorContainer = field.parentNode.querySelector('.error-message');
+            if (errorContainer) errorContainer.remove();
+            field.classList.remove('border-red-500');
+            field.classList.add('border-gray-300');
+            
+            switch(fieldId) {
+                case 'name':
+                    if (!value) { errorMessage = 'Name is required'; isValid = false; }
+                    break;
+                case 'email':
+                    if (!value) { errorMessage = 'Email is required'; isValid = false; }
+                    else if (!isValidEmail(value)) { errorMessage = 'Please enter a valid email address'; isValid = false; }
+                    break;
+                case 'subject':
+                    if (!value) { errorMessage = 'Subject is required'; isValid = false; }
+                    break;
+                case 'message':
+                    if (!value) { errorMessage = 'Message is required'; isValid = false; }
+                    break;
+            }
+            
+            if (!isValid) {
+                displayError(field, errorMessage);
+            } else {
+                field.classList.remove('border-gray-300', 'border-red-500');
+                field.classList.add('border-green-500');
+            }
+            return isValid;
+        }
+        
+        function isValidEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+        
+        function displayError(field, message) {
+            const errorElement = document.createElement('div');
+            errorElement.className = 'error-message text-red-500 text-sm mt-1';
+            errorElement.textContent = message;
+            field.parentNode.appendChild(errorElement);
+            
+            field.classList.remove('border-gray-300', 'border-green-500');
+            field.classList.add('border-red-500');
+        }
+        
+        // Newsletter Form
+        const newsletterForm = document.getElementById('newsletter-form');
+        const newsletterMessage = document.getElementById('newsletter-message');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = document.getElementById('newsletter-email');
+                if (emailInput && emailInput.value.trim() !== '') {
+                    console.log('Newsletter subscription:', emailInput.value);
+                    alert('Thank you for subscribing! You will receive our latest updates.');
+                    emailInput.value = ''; // Clear the input
+                }
+            });
+        }
+
+        // Code Protection - Prevent Developer Tools
+        (function() {
+            'use strict';
+            
+            // 检测是否为移动设备
+            function isMobileDevice() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                       (window.innerWidth <= 768) ||
+                       ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+            }
+            
+            // 如果是移动设备，跳过所有代码保护
+            if (isMobileDevice()) {
+                return;
+            }
+            
+            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U
+            document.addEventListener('keydown', function(e) {
+                // F12
+                if (e.keyCode === 123) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+Shift+I (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+Shift+J (Console)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+Shift+C (Inspect Element)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+U (View Source)
+                if (e.ctrlKey && e.keyCode === 85) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+S (Save Page)
+                if (e.ctrlKey && e.keyCode === 83) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+P (Print - can be used to view source)
+                if (e.ctrlKey && e.keyCode === 80) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+
+            // Disable right-click context menu
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
+
+            // Disable text selection (optional - can be removed if needed)
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Disable drag
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Detect and prevent developer tools opening
+            let devtools = {open: false, orientation: null};
+            const threshold = 160;
+            let originalBodyContent = null;
+            let detectionCount = 0;
+            
+            // Save original body content
+            if (!originalBodyContent) {
+                originalBodyContent = document.body.innerHTML;
+            }
+            
+            // Function to hide source and close page
+            function hideSourceAndClose() {
+                // Prevent multiple executions
+                if (devtools.open) return;
+                devtools.open = true;
+                
+                // Immediately clear all page content to hide source
+                try {
+                    document.body.innerHTML = '';
+                    document.head.innerHTML = '';
+                    
+                    // Create warning message
+                    const warningDiv = document.createElement('div');
+                    warningDiv.style.cssText = 'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;width:100vw;font-family:Arial,sans-serif;font-size:24px;color:#333;background:#f5f5f5;text-align:center;padding:20px;box-sizing:border-box;position:fixed;top:0;left:0;z-index:999999;';
+                    warningDiv.innerHTML = '<h1 style="color:#d32f2f;margin-bottom:20px;">Access Denied</h1><p style="margin-bottom:20px;">Developer tools detected. This page will close automatically.</p><p style="font-size:16px;color:#666;">Please close developer tools to continue browsing.</p>';
+                    document.body.appendChild(warningDiv);
+                    
+                    // Clear console immediately
+                    if (window.console && window.console.clear) {
+                        window.console.clear();
+                    }
+                    
+                    // Clear all intervals and timeouts
+                    for (let i = 1; i < 99999; i++) {
+                        window.clearInterval(i);
+                        window.clearTimeout(i);
+                    }
+                    
+                    // Attempt to close the page immediately
+                    try {
+                        window.close();
+                    } catch(e) {
+                        // Ignore
+                    }
+                    
+                    // Redirect to blank page after short delay
+                    setTimeout(function() {
+                        try {
+                            if (!window.closed) {
+                                window.location.href = 'about:blank';
+                            }
+                        } catch(e) {
+                            // Force redirect
+                            window.location.replace('about:blank');
+                        }
+                    }, 1000);
+                    
+                } catch(e) {
+                    // If all else fails, force redirect
+                    try {
+                        window.location.replace('about:blank');
+                    } catch(err) {
+                        // Last resort
+                        window.location.href = 'about:blank';
+                    }
+                }
+            }
+            
+            // Multiple detection methods
+            function detectDevTools() {
+                if (devtools.open) return true;
+                
+                // Method 1: Window size difference (most reliable)
+                const heightDiff = window.outerHeight - window.innerHeight;
+                const widthDiff = window.outerWidth - window.innerWidth;
+                
+                if (heightDiff > threshold || widthDiff > threshold) {
+                    detectionCount++;
+                    if (detectionCount >= 2) {
+                        hideSourceAndClose();
+                        return true;
+                    }
+                } else {
+                    detectionCount = Math.max(0, detectionCount - 1);
+                }
+                
+                // Method 2: Console detection (when console is opened)
+                try {
+                    const element = new Image();
+                    Object.defineProperty(element, 'id', {
+                        get: function() {
+                            if (!devtools.open) {
+                                detectionCount++;
+                                if (detectionCount >= 2) {
+                                    hideSourceAndClose();
+                                }
+                            }
+                        }
+                    });
+                    console.log(element);
+                    console.clear();
+                } catch(e) {
+                    // Ignore errors
+                }
+                
+                return false;
+            }
+            
+            // Continuous monitoring
+            setInterval(function() {
+                if (!devtools.open) {
+                    detectDevTools();
+                }
+            }, 500);
+            
+            // Additional check on focus/blur
+            window.addEventListener('blur', function() {
+                setTimeout(function() {
+                    if (document.hidden) {
+                        detectDevTools();
+                    }
+                }, 100);
+            });
+
+            // Prevent console access
+            const noop = function() {};
+            const methods = ['log', 'debug', 'info', 'warn', 'error', 'assert', 'dir', 'dirxml', 
+                           'group', 'groupEnd', 'time', 'timeEnd', 'count', 'trace', 'profile', 'profileEnd'];
+            methods.forEach(function(method) {
+                if (window.console && window.console[method]) {
+                    window.console[method] = noop;
+                }
+            });
+
+            // Clear console on page load
+            if (window.console && window.console.clear) {
+                window.console.clear();
+            }
+        })();
+    </script>
+</body>
+</html>
+
+

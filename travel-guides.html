@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guides - Journey Weaver | Comprehensive Destination Guides</title>
+    <meta name="description" content="Comprehensive travel guides for destinations across China. Expert insights, cultural tips, and practical information for your journey.">
+    <link rel="canonical" href="https://www.journeyweaver-sh.com/travel-guides.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A6496',
+                        secondary: '#F4A261',
+                        accent: '#E9C46A',
+                        dark: '#0F172A',
+                        light: '#F8FAFC',
+                        muted: '#64748B',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', 'serif'; }
+        html { scroll-behavior: smooth; }
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .animate-slide-up.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-dark/95 shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="图片1.png" alt="Company Logo" class="h-14 w-auto object-contain rounded-lg" style="max-height: 72px; background-color: rgba(255,255,255,1); padding: 4px;">
+                    <span class="text-xl md:text-2xl font-serif font-bold text-white ml-2 hidden md:inline">Journey<span class="text-secondary">Weaver</span></span>
+                </a>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    
+                    <div class="relative group">
+                        <a href="what-we-offer.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center">
+                            What We Offer
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-[600px] bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100 mega-menu border border-gray-100">
+                            <div class="p-6">
+                                <div class="mb-4 pb-4 border-b border-gray-200">
+                                    <a href="what-we-offer.html" class="block text-primary hover:text-secondary font-semibold text-base mb-1 transition-colors duration-200">View All Services →</a>
+                                    <p class="text-dark/60 text-xs">Complete overview of our travel experiences</p>
+                                </div>
+                                <div class="grid grid-cols-3 gap-6">
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">By Type</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="all-journeys.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">All Journeys</a></li>
+                                            <li><a href="custom-journeys.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Custom Journeys</a></li>
+                                            <li><a href="small-group-journeys.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Small Group Journeys</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">By Experience</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="cultural-experiences.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Cultural Experiences</a></li>
+                                            <li><a href="adventure-travel.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Adventure Travel</a></li>
+                                            <li><a href="sustainable-tourism.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Sustainable Tourism</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">By Interest</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="all-journeys.html?interest=culinary" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Culinary</a></li>
+                                            <li><a href="all-journeys.html?interest=hiking" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Hiking (GUDAO)</a></li>
+                                            <li><a href="all-journeys.html?interest=archaeology" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Archaeology</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <a href="get-inspired.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center">
+                            Get Inspired
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-[400px] bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100 mega-menu border border-gray-100">
+                            <div class="p-6">
+                                <div class="mb-4 pb-4 border-b border-gray-200">
+                                    <a href="get-inspired.html" class="block text-primary hover:text-secondary font-semibold text-base mb-1 transition-colors duration-200">View All Inspiration →</a>
+                                    <p class="text-dark/60 text-xs">Stories, blogs, and travel experiences</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">Stories & Inspiration</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="travelogue.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Travelogue (Blog)</a></li>
+                                            <li><a href="travel-stories.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Travel Stories</a></li>
+                                            <li><a href="testimonials.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Testimonials</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <a href="travel-resources.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center">
+                            Travel Resources
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-[400px] bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100 mega-menu border border-gray-100">
+                            <div class="p-6">
+                                <div class="mb-4 pb-4 border-b border-gray-200">
+                                    <a href="travel-resources.html" class="block text-primary hover:text-secondary font-semibold text-base mb-1 transition-colors duration-200">View All Resources →</a>
+                                    <p class="text-dark/60 text-xs">Guides, tips, and planning information</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">Planning Resources</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="travel-guides.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Travel Guides</a></li>
+                                            <li><a href="travel-tips.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Travel Tips</a></li>
+                                            <li><a href="visa-info.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Visa Info</a></li>
+                                            <li><a href="faq.html" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">FAQ</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <a href="why-us.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium flex items-center">
+                            Why Us
+                            <i class="fa fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-[400px] bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100 mega-menu border border-gray-100">
+                            <div class="p-6">
+                                <div class="mb-4 pb-4 border-b border-gray-200">
+                                    <a href="why-us.html" class="block text-primary hover:text-secondary font-semibold text-base mb-1 transition-colors duration-200">View All →</a>
+                                    <p class="text-dark/60 text-xs">Learn more about our company</p>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h4 class="font-semibold text-dark mb-3 text-sm uppercase tracking-wide">About Us</h4>
+                                        <ul class="space-y-2">
+                                            <li><a href="why-us.html#awards" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Awards and Press</a></li>
+                                            <li><a href="why-us.html#people" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Our People</a></li>
+                                            <li><a href="why-us.html#sustainability" class="block text-dark/70 hover:text-secondary transition-colors duration-200 text-sm">Sustainability</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="careers.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium">Join Us</a>
+                    <a href="faq.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium">FAQ</a>
+                    <a href="contact.html" class="text-white hover:text-secondary transition-colors duration-300 font-medium">Contact</a>
+                </nav>
+                <a href="contact.html" class="hidden md:block bg-secondary hover:bg-secondary/90 text-white font-semibold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105">PLAN YOUR JOURNEY</a>
+                <button id="mobile-menu-button" class="md:hidden text-white text-2xl focus:outline-none p-2"><i class="fa fa-bars"></i></button>
+            </div>
+
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden hidden bg-dark/95">
+            <div class="container mx-auto px-4 py-4 space-y-4">
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center">
+                        What We Offer
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="all-journeys.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">All Journeys</a>
+                        <a href="custom-journeys.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Custom Journeys</a>
+                        <a href="small-group-journeys.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Small Group Journeys</a>
+                        <a href="cultural-experiences.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Cultural Experiences</a>
+                        <a href="adventure-travel.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Adventure Travel</a>
+                        <a href="sustainable-tourism.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Sustainable Tourism</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center">
+                        Get Inspired
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="travelogue.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travelogue (Blog)</a>
+                        <a href="travel-stories.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travel Stories</a>
+                        <a href="testimonials.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Testimonials</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center">
+                        Travel Resources
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="travel-guides.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travel Guides</a>
+                        <a href="travel-tips.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Travel Tips</a>
+                        <a href="visa-info.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Visa Info</a>
+                        <a href="faq.html" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">FAQ</a>
+                    </div>
+                </div>
+                <div class="mobile-dropdown">
+                    <button class="mobile-dropdown-toggle w-full text-left text-white hover:text-secondary py-2 transition-colors duration-300 flex justify-between items-center">
+                        Why Us
+                        <i class="fa fa-chevron-down text-xs transition-transform duration-300"></i>
+                    </button>
+                    <div class="mobile-dropdown-content hidden mt-2 pl-4 space-y-2">
+                        <a href="why-us.html#awards" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Awards and Press</a>
+                        <a href="why-us.html#people" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Our People</a>
+                        <a href="why-us.html#sustainability" class="block text-white/80 hover:text-secondary py-2 transition-colors duration-300">Sustainability</a>
+                    </div>
+                </div>
+                <a href="careers.html" class="block text-white hover:text-secondary py-2 transition-colors duration-300">Join Us</a>
+                <a href="faq.html" class="block text-white hover:text-secondary py-2 transition-colors duration-300">FAQ</a>
+                <a href="contact.html" class="block text-white hover:text-secondary py-2 transition-colors duration-300">Contact</a>
+                <a href="contact.html" class="block bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-6 rounded-full text-center transition-all duration-300">
+                    PLAN YOUR JOURNEY
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="pt-32 pb-20 bg-gradient-to-br from-primary to-primary/80 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center animate-slide-up">
+                <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6">Travel Guides</h1>
+                <p class="text-xl text-white/90 mb-8">Comprehensive destination guides with expert insights and practical information</p>
+                <nav class="flex justify-center items-center gap-2 text-sm">
+                    <a href="index.html" class="text-white/70 hover:text-white">Home</a>
+                    <i class="fa fa-chevron-right text-white/50 text-xs"></i>
+                    <span class="text-white">Travel Guides</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-slide-up">
+                <h2 class="text-4xl font-serif font-bold text-dark mb-4">Destination Guides</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mb-6"></div>
+                <p class="text-dark/70 max-w-2xl mx-auto text-lg">
+                    Explore our comprehensive guides to China's most fascinating destinations, written by our expert travel team.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="h-56 overflow-hidden">
+                        <img src="China_Mountains_Rivers_Pagodas_Bridges_Yunnan_546421_2560x1440.jpg" alt="Yunnan Guide" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">Southwest</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary text-xs font-medium rounded-full">Culture</span>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-3">Yunnan Province</h3>
+                        <p class="text-dark/70 mb-4 leading-relaxed">Discover the diverse cultures, stunning landscapes, and ancient tea traditions of Yunnan. From the UNESCO World Heritage old towns of Lijiang and Dali to the terraced rice fields of Yuanyang and the tropical rainforests of Xishuangbanna, Yunnan offers an incredible diversity of experiences.</p>
+                        <ul class="text-sm text-dark/60 space-y-1 mb-4">
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Best time: March-May, September-November</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Must-see: Lijiang Old Town, Tiger Leaping Gorge</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Local specialty: Pu'er tea, Yunnan ham</li>
+                        </ul>
+                        <a href="guide-yunnan.html" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Read Full Guide <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 100ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="Southern-Plateau-China-Tibet-Mount-Everest.webp" alt="Tibet Guide" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">Plateau</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary text-xs font-medium rounded-full">Spiritual</span>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-3">Tibetan Plateau</h3>
+                        <p class="text-dark/70 mb-4 leading-relaxed">Explore the roof of the world with our guide to Tibet's spiritual sites and natural wonders. Home to some of the world's highest peaks, most sacred monasteries, and most pristine lakes, Tibet offers a journey that is both physically challenging and spiritually rewarding.</p>
+                        <ul class="text-sm text-dark/60 space-y-1 mb-4">
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Best time: May-October (warmer months)</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Must-see: Potala Palace, Namtso Lake</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Important: Altitude acclimatization required</li>
+                        </ul>
+                        <a href="guide-tibet.html" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Read Full Guide <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 200ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="5103f5d5b012d588f17a2c95dddd4a04.jpg" alt="Xinjiang Guide" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">Northwest</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary text-xs font-medium rounded-full">History</span>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-3">Xinjiang Region</h3>
+                        <p class="text-dark/70 mb-4 leading-relaxed">Journey along the ancient Silk Road through Xinjiang's diverse landscapes and cultures. From the bustling bazaars of Kashgar to the stunning beauty of Kanas Lake and the vast Taklamakan Desert, Xinjiang showcases the incredible diversity of China's western frontier.</p>
+                        <ul class="text-sm text-dark/60 space-y-1 mb-4">
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Best time: May-October</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Must-see: Kashgar Old City, Kanas Lake</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Local specialty: Xinjiang lamb kebabs, naan bread</li>
+                        </ul>
+                        <a href="guide-xinjiang.html" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Read Full Guide <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 300ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="China_Guizhou_Xijiang-Miao-Village-17-1160x773 (1).jpg" alt="Guizhou Guide" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">Southwest</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary text-xs font-medium rounded-full">Ethnic</span>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-3">Guizhou Province</h3>
+                        <p class="text-dark/70 mb-4 leading-relaxed">Experience the rich ethnic cultures and karst landscapes of Guizhou. Home to 17 ethnic minority groups, Guizhou offers authentic cultural experiences, from traditional Miao silverwork to Dong polyphonic singing, set against a backdrop of dramatic karst mountains and terraced fields.</p>
+                        <ul class="text-sm text-dark/60 space-y-1 mb-4">
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Best time: March-November</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Must-see: Huangguoshu Waterfall, Xijiang Miao Village</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Local specialty: Sour fish soup, rice wine</li>
+                        </ul>
+                        <a href="guide-guizhou.html" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Read Full Guide <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 400ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="986677167f9aa584931a6a6c0aa2fe64-sichuan.jpg" alt="Sichuan Guide" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">Southwest</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary text-xs font-medium rounded-full">Wildlife</span>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-3">Sichuan Province</h3>
+                        <p class="text-dark/70 mb-4 leading-relaxed">From pandas to spicy cuisine, discover the many faces of Sichuan. This province is famous for its fiery cuisine, adorable giant pandas, stunning natural scenery including Jiuzhaigou Valley, and rich cultural heritage including ancient Buddhist sites and traditional teahouse culture.</p>
+                        <ul class="text-sm text-dark/60 space-y-1 mb-4">
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Best time: March-June, September-November</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Must-see: Chengdu Panda Base, Jiuzhaigou</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Local specialty: Hot pot, mapo tofu</li>
+                        </ul>
+                        <a href="guide-sichuan.html" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Read Full Guide <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-light rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 500ms;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="v2-3e321412acc6781bdc91407e87ebe013_1440w.jpg" alt="Beijing Guide" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">Urban</span>
+                            <span class="px-3 py-1 bg-secondary/10 text-secondary text-xs font-medium rounded-full">History</span>
+                        </div>
+                        <h3 class="text-xl font-serif font-semibold text-dark mb-3">Beijing & Shanghai</h3>
+                        <p class="text-dark/70 mb-4 leading-relaxed">Navigate China's iconic cities with our comprehensive urban guides. Beijing offers imperial history and traditional culture, while Shanghai showcases modern China with its futuristic skyline, world-class dining, and vibrant arts scene. Both cities provide perfect gateways to understanding China's past and future.</p>
+                        <ul class="text-sm text-dark/60 space-y-1 mb-4">
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Best time: April-May, September-October</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Must-see: Forbidden City, The Bund</li>
+                            <li><i class="fa fa-check text-secondary mr-2"></i> Local specialty: Peking duck, xiaolongbao</li>
+                        </ul>
+                        <a href="guide-beijing-shanghai.html" class="inline-flex items-center text-primary hover:text-secondary font-medium transition-colors">
+                            Read Full Guide <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-light rounded-2xl p-8 md:p-12 animate-slide-up">
+                <h3 class="text-3xl font-serif font-semibold text-dark mb-8 text-center">What's Included in Our Guides</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-map-marker text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-dark mb-2">Must-See Attractions</h4>
+                        <p class="text-dark/70 text-sm">Curated lists of essential sights and hidden gems, with detailed descriptions and insider tips from our expert guides</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-cutlery text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-dark mb-2">Local Cuisine & Dining</h4>
+                        <p class="text-dark/70 text-sm">Recommendations for authentic local food experiences, from street food to fine dining, with cultural context</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa fa-info-circle text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-semibold text-dark mb-2">Practical Information</h4>
+                        <p class="text-dark/70 text-sm">Transportation options, weather patterns, cultural customs, safety tips, and everything you need to know before you go</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-16 pb-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="flex items-center">
+                        <a href="index.html" class="flex items-center">
+                            <span class="bg-white p-2 rounded-lg">
+                                <img src="图片1.png" alt="Journey Weaver Logo" class="h-10 sm:h-12 w-auto object-contain" loading="lazy">
+                            </span>
+                            <span class="ml-3 text-xl font-bold text-white">Journey Weaver</span>
+                        </a>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Weave Journeys, Cherish Memories. Specializing in emotionally-driven, sustainable travel experiences across China.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-facebook text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-instagram text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-twitter text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-wechat text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors duration-300">
+                            <i class="fa fa-linkedin text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-secondary transition-colors duration-300">About Us</a></li>
+                        <li><a href="all-journeys.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">All Journeys</a></li>
+                        <li><a href="why-us.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Why Choose Us</a></li>
+                        <li><a href="travelogue.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Travelogue</a></li>
+                        <li><a href="index.html#team" class="text-gray-400 hover:text-secondary transition-colors duration-300">Our Team</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">FAQ</a></li>
+                        <li><a href="index.html#partnerships" class="text-gray-400 hover:text-secondary transition-colors duration-300">Partnerships</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="cultural-experiences.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Cultural Immersion</a></li>
+                        <li><a href="adventure-travel.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Nature Exploration</a></li>
+                        <li><a href="custom-journeys.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Health & Wellness</a></li>
+                        <li><a href="adventure-travel.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Adventure Tourism</a></li>
+                        <li><a href="adventure-travel.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Western Expeditions</a></li>
+                        <li><a href="sustainable-tourism.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Carbon-Neutral Travel</a></li>
+                        <li><a href="small-group-journeys.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Small Group Tours</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-secondary mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-400">
+                                <strong class="text-white">Shanghai (HQ)</strong><br>
+                                No. 1234, Huaihai Middle Road, Xuhui District, 200031
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-secondary mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-400">
+                                <strong class="text-white">Beijing</strong><br>
+                                10F, Oriental Plaza, Dongcheng District, 100006
+                            </span>
+                        </li>
+                         <li class="flex items-start gap-3">
+                            <i class="fa fa-map-marker text-secondary mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-400">
+                                <strong class="text-white">Chengdu</strong><br>
+                                26F, Hangkong Road, Wuhou District, 610041
+                            </span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa fa-phone text-secondary flex-shrink-0"></i>
+                            <a href="tel:+8602164227654" class="text-gray-400 hover:text-secondary transition-colors duration-300">+86 021-64227654</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa fa-envelope text-secondary flex-shrink-0"></i>
+                            <a href="mailto:service@journeyweaver-sh.com" class="text-gray-400 hover:text-secondary transition-colors duration-300">service@journeyweaver-sh.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 my-10"></div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-gray-400 text-center md:text-left text-sm">
+                    © 2025 Shanghai Journey Weaving Travel Agency Co., Ltd. All rights reserved.
+                </p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Terms of Service</a>
+                    <a href="cookie-policy.html" class="text-gray-400 hover:text-secondary transition-colors duration-300">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+                
+                // Toggle menu visibility
+                mobileMenu.classList.toggle('hidden');
+                
+                // Toggle icon between menu and x
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                }
+                
+                // Prevent body scroll when menu is open
+                document.body.classList.toggle('overflow-hidden', !isExpanded);
+            });
+        }
+
+        // Mobile Dropdown Toggles
+        document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const dropdown = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                dropdown.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-slide-up').forEach(el => observer.observe(el));
+
+        // Code Protection - Prevent Developer Tools
+        (function() {
+            'use strict';
+            
+            // 检测是否为移动设备
+            function isMobileDevice() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                       (window.innerWidth <= 768) ||
+                       ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+            }
+            
+            // 如果是移动设备，跳过所有代码保护
+            if (isMobileDevice()) {
+                return;
+            }
+            
+            // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, Ctrl+U
+            document.addEventListener('keydown', function(e) {
+                // F12
+                if (e.keyCode === 123) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+Shift+I (Developer Tools)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+Shift+J (Console)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+Shift+C (Inspect Element)
+                if (e.ctrlKey && e.shiftKey && e.keyCode === 67) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+U (View Source)
+                if (e.ctrlKey && e.keyCode === 85) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+S (Save Page)
+                if (e.ctrlKey && e.keyCode === 83) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+                // Ctrl+P (Print - can be used to view source)
+                if (e.ctrlKey && e.keyCode === 80) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            });
+
+            // Disable right-click context menu
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            });
+
+            // Disable text selection (optional - can be removed if needed)
+            document.addEventListener('selectstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Disable drag
+            document.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Detect and prevent developer tools opening
+            let devtools = {open: false, orientation: null};
+            const threshold = 160;
+            let originalBodyContent = null;
+            let detectionCount = 0;
+            
+            // Save original body content
+            if (!originalBodyContent) {
+                originalBodyContent = document.body.innerHTML;
+            }
+            
+            // Function to hide source and close page
+            function hideSourceAndClose() {
+                // Prevent multiple executions
+                if (devtools.open) return;
+                devtools.open = true;
+                
+                // Immediately clear all page content to hide source
+                try {
+                    document.body.innerHTML = '';
+                    document.head.innerHTML = '';
+                    
+                    // Create warning message
+                    const warningDiv = document.createElement('div');
+                    warningDiv.style.cssText = 'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;width:100vw;font-family:Arial,sans-serif;font-size:24px;color:#333;background:#f5f5f5;text-align:center;padding:20px;box-sizing:border-box;position:fixed;top:0;left:0;z-index:999999;';
+                    warningDiv.innerHTML = '<h1 style="color:#d32f2f;margin-bottom:20px;">Access Denied</h1><p style="margin-bottom:20px;">Developer tools detected. This page will close automatically.</p><p style="font-size:16px;color:#666;">Please close developer tools to continue browsing.</p>';
+                    document.body.appendChild(warningDiv);
+                    
+                    // Clear console immediately
+                    if (window.console && window.console.clear) {
+                        window.console.clear();
+                    }
+                    
+                    // Clear all intervals and timeouts
+                    for (let i = 1; i < 99999; i++) {
+                        window.clearInterval(i);
+                        window.clearTimeout(i);
+                    }
+                    
+                    // Attempt to close the page immediately
+                    try {
+                        window.close();
+                    } catch(e) {
+                        // Ignore
+                    }
+                    
+                    // Redirect to blank page after short delay
+                    setTimeout(function() {
+                        try {
+                            if (!window.closed) {
+                                window.location.href = 'about:blank';
+                            }
+                        } catch(e) {
+                            // Force redirect
+                            window.location.replace('about:blank');
+                        }
+                    }, 1000);
+                    
+                } catch(e) {
+                    // If all else fails, force redirect
+                    try {
+                        window.location.replace('about:blank');
+                    } catch(err) {
+                        // Last resort
+                        window.location.href = 'about:blank';
+                    }
+                }
+            }
+            
+            // Multiple detection methods
+            function detectDevTools() {
+                if (devtools.open) return true;
+                
+                // Method 1: Window size difference (most reliable)
+                const heightDiff = window.outerHeight - window.innerHeight;
+                const widthDiff = window.outerWidth - window.innerWidth;
+                
+                if (heightDiff > threshold || widthDiff > threshold) {
+                    detectionCount++;
+                    if (detectionCount >= 2) {
+                        hideSourceAndClose();
+                        return true;
+                    }
+                } else {
+                    detectionCount = Math.max(0, detectionCount - 1);
+                }
+                
+                // Method 2: Console detection (when console is opened)
+                try {
+                    const element = new Image();
+                    Object.defineProperty(element, 'id', {
+                        get: function() {
+                            if (!devtools.open) {
+                                detectionCount++;
+                                if (detectionCount >= 2) {
+                                    hideSourceAndClose();
+                                }
+                            }
+                        }
+                    });
+                    console.log(element);
+                    console.clear();
+                } catch(e) {
+                    // Ignore errors
+                }
+                
+                return false;
+            }
+            
+            // Continuous monitoring
+            setInterval(function() {
+                if (!devtools.open) {
+                    detectDevTools();
+                }
+            }, 500);
+            
+            // Additional check on focus/blur
+            window.addEventListener('blur', function() {
+                setTimeout(function() {
+                    if (document.hidden) {
+                        detectDevTools();
+                    }
+                }, 100);
+            });
+
+            // Prevent console access
+            const noop = function() {};
+            const methods = ['log', 'debug', 'info', 'warn', 'error', 'assert', 'dir', 'dirxml', 
+                           'group', 'groupEnd', 'time', 'timeEnd', 'count', 'trace', 'profile', 'profileEnd'];
+            methods.forEach(function(method) {
+                if (window.console && window.console[method]) {
+                    window.console[method] = noop;
+                }
+            });
+
+            // Clear console on page load
+            if (window.console && window.console.clear) {
+                window.console.clear();
+            }
+        })();
+    </script>
+</body>
+</html>
+
+
